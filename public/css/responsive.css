@@ -230,6 +230,8 @@
 /* small mobile :320px. */
 @media (max-width: 767px) {
     .container {max-width:320px}
+    .search-input{width: 100%;margin-bottom: 10px;}
+    .search-container{flex-wrap: wrap;}
     .as-mainwrapper.wrapper-boxed {width:300px}
     .mobile-menu-area {display: block}
     .mainmenu {

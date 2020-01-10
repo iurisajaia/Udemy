@@ -57,6 +57,23 @@
 
 -----------------------------------------------------------------------------------*/
 
+.someelement{
+    display: none;
+}
+
+.search-container{
+    display: flex!important;
+    justify-content: space-around;
+}
+.search-input {
+    background: #fff;
+    z-index: 99;
+    padding: 10px 20px;
+    height: 50px;
+    width: 75%;
+    border-radius: 5px;
+    border:none;
+}
 /*----------------------------------------*/
 /*  1.  Theme default CSS
 /*----------------------------------------*/
@@ -1071,7 +1088,13 @@ body {
     background: #ffffff none repeat scroll 0 0;
     box-shadow: 0 2px 20px rgba(34, 30, 31, 0.4);
 }
-.single-item-text h4 {font-size: 20px; padding-top: 7px;}
+.single-item-text h4 {font-size: 20px; padding-top: 7px; height: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; 
+}
 .single-item-text h4 a, .single-item-text h4 {color: #2d3e50;}
 .single-item-text-info span {
     color: #696969;
@@ -1079,7 +1102,11 @@ body {
     margin-right: 11px;
 }
 .single-item-text-info span span {color: #2d3e50;}
-.single-item-text > p {color: #222222;}
+.single-item-text > p {color: #222222; overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; }
 .single-item-content {
     margin-bottom: 44px;
     overflow: hidden;
@@ -1766,13 +1793,13 @@ body {
 /*----------------------------------------*/
 /*  17. Course Page
 /*----------------------------------------*/
-.course-page {padding-top: 154px;}
+.course-page {padding-top: 100px;}
 .form-container {
     background: rgba(0, 0, 0, 0) url("img/banner/5.jpg") no-repeat scroll center top;
     color: #555454;
     font-family: "montserratregular";
     font-size: 12px;
-    margin: -60px 0 0;
+    margin: 40px 0 0;
     overflow: hidden;
     padding: 38px 64px;
     position: relative;
@@ -1819,6 +1846,7 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     z-index: 99;
+    border-radius: 5px;
 }
 .course-page .single-item {margin-bottom: 178px;}
 .course-page.shortcode .single-item {margin-bottom: 78px;}
@@ -1908,10 +1936,10 @@ body {
     background: #f6f6f6 none repeat scroll 0 0;
     border-bottom: 3px solid #86bc42;
     margin-bottom: 80px;
-    padding: 33px 0;
+    /* padding: 33px 0; */
 }
 .single-course-details .single-item-text {padding-right: 48px;}
-.course-details-area a img {margin-left: -35px;}
+/* .course-details-area a img {margin-left: -35px;} */
 .single-course-details a {display: block;}
 .single-course-details .col-md-6:first-child {padding-right: 3px;}
 /*----------------------------------------*/
@@ -2078,8 +2106,11 @@ span.comment-time {padding-right: 3px; position: relative;}
 .breadcrumb-banner-area {
     background: rgba(0, 0, 0, 0) url("img/banner/4.jpg") no-repeat scroll 0 0;
     color: #ffffff;
-    padding: 110px 0;
+    padding: 40px 0;
     position: relative;
+}
+.breadcrumb-banner-area .text-center{
+    padding-bottom: 0!important;
 }
 .breadcrumb-banner-area.fixed-bg {background: url("img/slider/3.jpg") no-repeat fixed top center / cover}
 .breadcrumb-banner-area.no-bg {background: rgba(0, 0, 0, 0) none repeat scroll 0 0;}
@@ -2114,17 +2145,7 @@ span.comment-time {padding-right: 3px; position: relative;}
     position: relative;
     font-size: 36px
 }
-.breadcrumb-text h1:after {
-    background: #ffffff none repeat scroll 0 0;
-    bottom: 0;
-    content: "";
-    height: 29px;
-    left: 0;
-    margin: auto;
-    position: absolute;
-    right: 0;
-    width: 2px;
-}
+
 .breadcrumb-bar li {
     color: #ffffff;
     font-family: "montserratregular";
