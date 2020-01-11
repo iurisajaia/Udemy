@@ -28,6 +28,8 @@
     <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+
   </head>
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <header class="app-header navbar">
@@ -46,8 +48,13 @@
         <nav class="sidebar-nav">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="/home">
+              <a class="nav-link" href="/">
                 <i class="nav-icon icon-speedometer"></i> Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/home">
+                <i class="nav-icon icon-speedometer"></i> Dashboard
               </a>
             </li>
             <li class="nav-item">
@@ -62,7 +69,6 @@
             </li>
           </ul>
         </nav>
-        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
       </div>
 
       <main class="main">
@@ -399,15 +405,5 @@
   </div>
 
 
-    <footer class="app-footer">
-      <div>
-        <a href="https://coreui.io">CoreUI</a>
-        <span>&copy; 2018 creativeLabs.</span>
-      </div>
-      <div class="ml-auto">
-        <span>Powered by</span>
-        <a href="https://coreui.io">CoreUI</a>
-      </div>
-    </footer>
   </body>
 </html>

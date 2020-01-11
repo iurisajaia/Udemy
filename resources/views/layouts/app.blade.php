@@ -48,7 +48,7 @@
                 <!--Bg White Start-->
                 <div class="bg-white">
                     <!--Header Area Start-->
-                    @if (!Request::is(['home' ,'login'])) 
+                    @if (!Request::is('login')) 
                        
                     <header>
                         <div class="header-logo-menu sticker">
@@ -56,7 +56,9 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-12">
                                         <div class="logo">
-                                            <a href="index.html"><img src="img/logo/logo.png" alt="EDUCAT"></a>
+                                        <a href="/">
+                                            <img src="{{URL::asset('img/logo/logo.png')}}" alt="Free Online Courses" title="Free Online Courses">
+                                        </a>
                                         </div>
                                     </div>
                                     <div class="col-lg-9 col-12">
@@ -68,6 +70,9 @@
                                                         <li><a href="/about">About</a></li>
                                                         <li><a href="/courses">Courses</a></li>
                                                         <li><a href="/contact">Contact</a></li>
+                                                        @if(Auth::user())
+                                                        <li><a href="/home">Dahboard</a></li>
+                                                        @endif
                                                     </ul>
                                                 </nav>
                                             </div>
@@ -127,15 +132,17 @@
                     {{-- /Content --}}
 
 
-                    @if (!Request::is(['home' ,'login'])) 
+                    @if (!Request::is('login')) 
                     <!--Footer Widget Area Start-->
                     <div class="footer-widget-area">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-3 col-md-6">
+                                <div class="col-lg-4 col-md-6">
                                     <div class="single-footer-widget">
                                         <div class="footer-logo">
-                                            <a href="index.html"><img src="img/logo/footer.png" alt=""></a>
+                                            <a href="/">
+                                                <img src="{{ URL::asset('img/logo/footer.png')}}" alt="Free Online Courses" title="Free Online Courses">
+                                            </a>
                                         </div>
                                         <p>There are many variations of passg of Lorem Ipsum available, but thmajority have suffered altem, </p>
                                         <div class="social-icons">
@@ -147,7 +154,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
+                                <div class="col-lg-4 col-md-6">
                                     <div class="single-footer-widget">
                                         <h3>GET IN TOUCH</h3>
                                         <a href="tel:555-555-1212"><i class="fa fa-phone"></i>555-555-1212</a>
@@ -156,7 +163,7 @@
                                         <span><i class="fa fa-map-marker"></i>ur address goes here,street.</span>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
+                                <div class="col-lg-4 col-md-6">
                                     <div class="single-footer-widget">
                                         <h3>Useful Links</h3>
                                         <ul class="footer-list">
@@ -168,31 +175,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="single-footer-widget">
-                                        <h3>Instagram</h3>
-                                        <div class="instagram-image">
-                                            <div class="footer-img">
-                                                <a href="#"><img src="img/footer/1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="footer-img">
-                                                <a href="#"><img src="img/footer/2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="footer-img">
-                                                <a href="#"><img src="img/footer/3.jpg" alt=""></a>
-                                            </div>
-                                            <div class="footer-img">
-                                                <a href="#"><img src="img/footer/4.jpg" alt=""></a>
-                                            </div>
-                                            <div class="footer-img">
-                                                <a href="#"><img src="img/footer/5.jpg" alt=""></a>
-                                            </div>
-                                            <div class="footer-img">
-                                                <a href="#"><img src="img/footer/6.jpg" alt=""></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -201,11 +183,8 @@
     <!--End of Footer Widget Area-->
 
 
-            <script type="text/javascript" src={{ URL::asset('js/vendor/jquery-1.12.4.min.js') }}></script>
-                <script type="text/javascript" src={{ URL::asset('js/bootstrap.min.js')}}></script>
-
-     		<!-- jquery
-//     		============================================ -->
-
+            <script type="text/javascript" src=https://code.jquery.com/jquery-3.4.1.min.js></script>
+            <script type="text/javascript" src={{ URL::asset('js/bootstrap.min.js')}}></script>
+                    
         </body>
 </html>

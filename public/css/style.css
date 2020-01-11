@@ -130,48 +130,48 @@ ul{
 
 @font-face {
     font-family: 'montserratbold';
-    src: url('../../public/css/fonts/montserrat-bold-webfont.eot');
-    src: url('../../public/css/fonts/montserrat-bold-webfontd41d.eot?#iefix') format('embedded-opentype'),
-    url('../../public/css/fonts/montserrat-bold-webfont.woff2') format('woff2'),
-    url('../../public/css/fonts/montserrat-bold-webfont.woff') format('woff'),
-    url('../../public/css/fonts/montserrat-bold-webfont.ttf') format('truetype'),
-    url('../../public/css/fonts/montserrat-bold-webfont.svg#montserratbold') format('svg');
+    src: url('./fonts/montserrat-bold-webfont.eot');
+    src: url('./fonts/montserrat-bold-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/montserrat-bold-webfont.woff2') format('woff2'),
+    url('./fonts/montserrat-bold-webfont.woff') format('woff'),
+    url('./fonts/montserrat-bold-webfont.ttf') format('truetype'),
+    url('./fonts/montserrat-bold-webfont.svg#montserratbold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'montserratlight';
-    src: url('../../public/css/fonts/montserrat-light-webfont.eot');
-    src: url('../../public/css/fonts/montserrat-light-webfontd41d.eot?#iefix') format('embedded-opentype'),
-    url('../../public/css/fonts/montserrat-light-webfont.woff2') format('woff2'),
-    url('../../public/css/fonts/montserrat-light-webfont.woff') format('woff'),
-    url('../../public/css/fonts/montserrat-light-webfont.ttf') format('truetype'),
-    url('../../public/css/fonts/montserrat-light-webfont.svg#montserratlight') format('svg');
+    src: url('./fonts/montserrat-light-webfont.eot');
+    src: url('./fonts/montserrat-light-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/montserrat-light-webfont.woff2') format('woff2'),
+    url('./fonts/montserrat-light-webfont.woff') format('woff'),
+    url('./fonts/montserrat-light-webfont.ttf') format('truetype'),
+    url('./fonts/montserrat-light-webfont.svg#montserratlight') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'montserratregular';
-    src: url('../../public/css/fonts/montserrat-regular-webfont.eot');
-    src: url('../../public/css/fonts/montserrat-regular-webfontd41d.eot?#iefix') format('embedded-opentype'),
-    url('../../public/css/fonts/montserrat-regular-webfont.woff2') format('woff2'),
-    url('../../public/css/fonts/montserrat-regular-webfont.woff') format('woff'),
-    url('../../public/css/fonts/montserrat-regular-webfont.ttf') format('truetype'),
-    url('../../public/css/fonts/montserrat-regular-webfont.svg#montserratregular') format('svg');
+    src: url('./fonts/montserrat-regular-webfont.eot');
+    src: url('./fonts/montserrat-regular-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/montserrat-regular-webfont.woff2') format('woff2'),
+    url('./fonts/montserrat-regular-webfont.woff') format('woff'),
+    url('./fonts/montserrat-regular-webfont.ttf') format('truetype'),
+    url('./fonts/montserrat-regular-webfont.svg#montserratregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'montserratsemi_bold';
-    src: url('../../public/css/fonts/montserrat-semibold-webfont.eot');
-    src: url('../../public/css/fonts/montserrat-semibold-webfontd41d.eot?#iefix') format('embedded-opentype'),
-    url('../../public/css/fonts/montserrat-semibold-webfont.woff2') format('woff2'),
-    url('../../public/css/fonts/montserrat-semibold-webfont.woff') format('woff'),
-    url('../../public/css/fonts/montserrat-semibold-webfont.ttf') format('truetype'),
-    url('../../public/css/fonts/montserrat-semibold-webfont.svg#montserratsemi_bold') format('svg');
+    src: url('./fonts/montserrat-semibold-webfont.eot');
+    src: url('./fonts/montserrat-semibold-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/montserrat-semibold-webfont.woff2') format('woff2'),
+    url('./fonts/montserrat-semibold-webfont.woff') format('woff'),
+    url('./fonts/montserrat-semibold-webfont.ttf') format('truetype'),
+    url('./fonts/montserrat-semibold-webfont.svg#montserratsemi_bold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -226,21 +226,7 @@ body {
     text-align: center;
     width: 230px;
 }
-.section-title-wrapper:after {
-    background: rgba(0, 0, 0, 0) url("img/icon/cap-dark.jpg") no-repeat scroll 0 0;
-    bottom: -8px;
-    color: #1bb4b9;
-    content: "";
-    font-size: 14px;
-    height: 20px;
-    left: 0;
-    margin: 0 auto;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    width: 40px;
-    z-index: 9;
-}
+
 .white .section-title h3, .white .section-title p {color: #ffffff;}
 .section-title-wrapper.white:before {background: #ffffff none repeat scroll 0 0;}
 .white.section-title-wrapper:after {background: rgba(0, 0, 0, 0) url("img/icon/cap-white.jpg") repeat scroll 0 0;}
@@ -845,6 +831,18 @@ body {
     z-index: 2;
     background: rgba(134, 188, 66, 0.6) none repeat scroll 0 0;
 }
+
+.slider-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+}
 .overlay-light-fullwidth::after, .overlay-light-2-fullwidth::after, .overlay-dark-fullwidth::after, .overlay-dark-2-fullwidth::after {
     transform: none
 }
@@ -1088,12 +1086,13 @@ body {
     background: #ffffff none repeat scroll 0 0;
     box-shadow: 0 2px 20px rgba(34, 30, 31, 0.4);
 }
-.single-item-text h4 {font-size: 20px; padding-top: 7px; height: 55px;
-    overflow: hidden;
+.single-item-text h4 {font-size: 20px; padding-top: 7px; 
+    /* height: 55px; */
+    /* overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; 
+    -webkit-line-clamp: 2;  */
 }
 .single-item-text h4 a, .single-item-text h4 {color: #2d3e50;}
 .single-item-text-info span {
@@ -1939,6 +1938,10 @@ body {
     /* padding: 33px 0; */
 }
 .single-course-details .single-item-text {padding-right: 48px;}
+.single-course-details .single-item-text h2 {
+    font-size: 24px;
+    padding-top: 5px;
+}
 /* .course-details-area a img {margin-left: -35px;} */
 .single-course-details a {display: block;}
 .single-course-details .col-md-6:first-child {padding-right: 3px;}

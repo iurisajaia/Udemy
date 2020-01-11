@@ -14,7 +14,8 @@
         <div class="card-header">
           <strong>Basic Form</strong> Elements</div>
         <div class="card-body">
-          <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+          <form class="form-horizontal" action="/home/create" method="post" enctype="multipart/form-data">
+            @csrf
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="text-input">TiTle</label>
               <div class="col-md-9">
@@ -30,7 +31,10 @@
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="textarea-input">Description</label>
               <div class="col-md-9">
-                <textarea class="form-control" id="textarea-input" name="description" rows="9" placeholder="Description.."></textarea>
+                <textarea class="form-control" id="description" name="description" rows="9" placeholder="Description.."></textarea>
+                <script>
+                  CKEDITOR.replace( 'description' );
+                </script>
               </div>
             </div>
             <div class="form-group row">
@@ -45,12 +49,11 @@
                 <input id="file-multiple-input" type="file" name="file">
               </div>
             </div>
+              <button class="btn btn-sm btn-primary" type="submit">
+                <i class="fa fa-dot-circle-o"></i> Submit</button>
           </form>
         </div>
-        <div class="card-footer">
-          <button class="btn btn-sm btn-primary" type="submit">
-            <i class="fa fa-dot-circle-o"></i> Submit</button>
-        </div>
+        
       </div>
     </div>
 </div>

@@ -20,10 +20,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
-                <form action="#" method="post">
+                <form action="/courses/search" method="GET">
+                    {{-- {{csrf_field()}} --}}
                     <div class="form-container search-container">
-                                <input type="text" class="search-input"/>
-                        <button type="button">Search Course</button>
+                                <input type="text" class="search-input" name="search"/>
+                        <button type="submit">Search Course</button>
                     </div>
                 </form>  
             </div>
@@ -35,74 +36,31 @@
 <div class="course-area section-padding course-page">
     <div class="container">
         <div class="row">
+            @foreach($courses as $course)
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="single-item">
                     <div class="single-item-image overlay-effect">
-                        <a href="/courses/1"><img src="img/course/1.jpg" alt=""></a>
+                        <a href="/courses/{{$course->title}}/{{$course->id}}">
+                            <img src="{{asset('storage/'.$course->image)}}" alt="">
+                        </a>
                     </div>
                     <div class="single-item-text">
-                        <h4><a href="#">Photoshop CC 2017 By Someone Beginner To Masster Full Road</a></h4>
+                        <h4><a href="/courses/{{$course->title}}/{{$course->id}}">{{$course->title}}</a></h4>
                         <div class="single-item-text-info">
-                            <span>By: <span>M S Nawaz</span></span>
-                            <span>Date: <span>20.5.15</span></span>
-                        </div>
-                        <p>There are many variations of sages of Lorem Ipsum available, but the mrity have suffered alteration in some orm, by injected humo
-                        ur,There are many but the mri have suffered alteration in some </p>  
+                            <span>Author: <span>{{$course->author}}</span></span>
+                            {{-- <span>Date: <span>{{$course->created_at->format('Y-m-d')}}</span></span> --}}
+                        </div> 
                     </div>
                     <div class="button-bottom">
-                        <a href="/courses/1" class="button-default">View Course</a>
+                        <a href="/courses/{{$course->title}}/{{$course->id}}" class="button-default">See More</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="single-item">
-                    <div class="single-item-image overlay-effect">
-                        <a href="/courses/2"><img src="img/course/2.jpg" alt=""></a>
-                    </div>
-                    <div class="single-item-text">
-                        <h4><a href="#">Illustrator CC 2017</a></h4>
-                        <div class="single-item-text-info">
-                            <span>By: <span>Subas Das</span></span>
-                            <span>Date: <span>20.5.15</span></span>
-                        </div>
-                        <p>There are many variations of sages of Lorem Ipsum available, but the mrity have suffered alteration in some orm, by injected humo
-                        ur,There are many but the mri have suffered alteration in some </p> 
-                    </div>
-                    <div class="button-bottom">
-                        <a href="/courses/2" class="button-default">View Course</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="single-item">
-                    <div class="single-item-image overlay-effect">
-                        <a href="/courses/3"><img src="img/course/3.jpg" alt=""></a>
-                    </div>
-                    <div class="single-item-text">
-                        <h4><a href="#">Indesign CC 2017 Best Practises By Someone Cool Person A-Z Beginner To Master</a></h4>
-                        <div class="single-item-text-info">
-                            <span>By: <span>Momin Boss</span></span>
-                            <span>Date: <span>20.5.15</span></span>
-                        </div>
-                        <p>There are many variations of sages of Lorem Ipsum available, but the mrity have suffered alteration in some orm, by injected humo
-                ur,There are many but the mri have suffered alteration in some Lorem ipsum dolor sit amet.</p> 
-                    </div>
-                    <div class="button-bottom">
-                        <a href="/courses/3" class="button-default">View Course</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="pagination-content">
-                    <ul class="pagination">
-                        <li><a href="#"><i class="zmdi zmdi-chevron-left"></i></a></li>
-                        <li class="current"><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+            {{$courses->links()}}
+        
+
     </div>
 </div>
 <!--End of Course Area-->
