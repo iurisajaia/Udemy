@@ -39,7 +39,8 @@
             </div>
             <div class="col-lg-8 col-md-12">
                 <h4 class="contact-title">send your massage</h4>
-                <form id="contact-form" action="https://demo.hasthemes.com/educat-preview/educat/mail.php" method="post">
+                <form id="contact-form" action="/message" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <input type="text" name="name" placeholder="name">
@@ -48,7 +49,7 @@
                             <input type="email" name="email" placeholder="Email">
                         </div>
                         <div class="col-md-12">
-                            <textarea name="message" cols="30" rows="10" placeholder="Message"></textarea>
+                            <textarea name="text" cols="30" rows="10" placeholder="Message"></textarea>
                             <button type="submit" class="button-default">SUBMIT</button>
                         </div>
                     </div>

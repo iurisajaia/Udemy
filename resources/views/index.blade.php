@@ -5,10 +5,10 @@
     <div class="slider-area">
         <div class="preview-2">
             <div id="nivoslider" class="slides">
-                <img src="{{ URL::asset('img/slider/1.jpg')}}" alt="Free Online Tutorials" title="Free Online Tutorials"/>
+                <img src="{{ URL::asset('img/slider/1.png')}}" alt="Free Online Tutorials" title="Free Online Tutorials"/>
             </div>
             <div class="slider-overlay">
-                <h1>Free Online Courses </h1>
+                <h1><span>F</span>ree <span>O</span>nline <span>C</span>ourses </h1>
             </div>
         </div>
     </div>

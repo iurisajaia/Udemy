@@ -11,6 +11,8 @@ Route::get('/terms-and-conditions', 'RoutesController@termsPage');
 Route::get('/privacy-policy', 'RoutesController@privacyPage');
 Route::any('/courses/search' , 'RoutesController@search');
 
+Route::post('/message', 'MessageController@send');
+Route::get('/home/messages', 'MessageController@index');
 Auth::routes();
 
 Route::get('/register', 'HomeController@register');

@@ -2,10 +2,39 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Laravel</title>
+        <title>Free Online Courses - freeonlinecourses.me</title>
+        <meta name="description" content="Download best online courses for free" />
+        <meta name="robots" content="index, follow" />
+        <meta name="keywoards" 
+        content="
+        online classes , 
+        free online courses , 
+        online courses , 
+        online degrees, 
+        tutorial , 
+        javascript tutorial,
+        python tutorial,
+        angular tutorial,
+        java tutorial,
+        photoshop tutorial,
+        react tutorial,
+        docker tutorial,
+        node js tutorial,
+        php tutorial,
+        laravel tutorial
+        " 
+        />
+        <meta name="og:title" property="og:title" content="freeonlinecourses.me - Free Online Courses"/>
+        <meta name="title" content="Free Online Courses - freeonlinecourses.me" />
 
+
+
+
+
+        
+        <link rel="shortcut icon" type="image/png" href="{{URL::asset('img/logo/logo.png')}}" />
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 

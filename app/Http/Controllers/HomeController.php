@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Course;
+use App\Message;
 use Storage;
 
 class HomeController extends Controller
@@ -14,7 +15,15 @@ class HomeController extends Controller
     }
 
     public function index(){
-        return view('admin/index');
+        $courses = Course::all();
+        $messsages = Message::all();
+
+        $data = [
+            'courses_count' => count($courses),
+            'messages_count' => count($messsages)
+        ];
+
+        return view('admin/index')->with($data);
     }
 
     public function logout(){
@@ -22,6 +31,7 @@ class HomeController extends Controller
         return redirect('/login');
     }
 
+    // disable register route
     public function register(){
         return redirect()->route('login');
     }
@@ -34,6 +44,7 @@ class HomeController extends Controller
         return view('admin/courses')->with('courses', Course::all());
     }
 
+    // Store course
     public function store(Request $request){
 
         $image = $request->image->store('images');
@@ -53,6 +64,7 @@ class HomeController extends Controller
 
     }
 
+    // Remove Course
     public function destroy($id){
         $course = Course::where('id' , $id)->firstOrFail();
         Storage::delete($course->image);
@@ -61,13 +73,14 @@ class HomeController extends Controller
         return redirect('home/courses');
     }
 
-
+    // Edit View
     public function edit($id){
         $course = Course::where('id' , $id)->firstOrFail();
 
         return view('admin.edit')->with('course' , $course);
     }
 
+    // Update Course
     public function update(Request $request , $id){
         $course = Course::where('id' , $id)->firstOrFail();
 

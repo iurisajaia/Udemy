@@ -67,6 +67,11 @@
                 <i class="nav-icon icon-speedometer"></i> Create
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/home/messages">
+                <i class="nav-icon icon-speedometer"></i> Messages
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
