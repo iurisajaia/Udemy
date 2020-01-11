@@ -25,7 +25,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="overlay-effect">
-                                    <a href="#"><img alt="" src={{asset('storage/'.$course->image)}} /></a>
+                                        <img  src={{asset('storage/'.$course->image)}} alt="{{$course->title}}" title="{{$course->title}}"/>
+                                
                                 </div>
                             </div>  
                             <div class="col-md-6">

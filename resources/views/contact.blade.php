@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-text">
-                    <h1 class="text-center">CONTACT US</h1>
+                    <h2 class="text-center">CONTACT US</h2>
                 </div>
             </div>
         </div>

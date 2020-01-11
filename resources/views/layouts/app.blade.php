@@ -146,21 +146,17 @@
                                         </div>
                                         <p>There are many variations of passg of Lorem Ipsum available, but thmajority have suffered altem, </p>
                                         <div class="social-icons">
-                                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                                            <a href="#"><i class="zmdi zmdi-rss"></i></a>
-                                            <a href="#"><i class="zmdi zmdi-google-plus"></i></a>
-                                            <a href="#"><i class="zmdi zmdi-pinterest"></i></a>
-                                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="single-footer-widget">
                                         <h3>GET IN TOUCH</h3>
-                                        <a href="tel:555-555-1212"><i class="fa fa-phone"></i>555-555-1212</a>
-                                        <span><i class="fa fa-envelope"></i>info@example.com</span>
-                                        <span><i class="fa fa-globe"></i>www.educat.com</span>
-                                        <span><i class="fa fa-map-marker"></i>ur address goes here,street.</span>
+                                        <a href="tel:555-555-1212"><i class="fa fa-phone"></i>+995-598-29-79-61</a>
+                                        <span><i class="fa fa-envelope"></i>sajaiaiuri@gmail.com</span>
+                                        <span><i class="fa fa-globe"></i>www.freeonlinecourses.me</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6">

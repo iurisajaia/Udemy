@@ -2875,3 +2875,6 @@ span.c-text {display: inline-block;}
 .testimonial-carousel .slick-dots li.slick-active button{
     background: #2d3e50;
 }
+.terms-text-container h3{
+    margin: 15px 0;
+}

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Admin Panel</h1>
+    <h2>Admin Panel</h2>
     <form action="/logout">
         <button>Log Out</button>
     </form>   

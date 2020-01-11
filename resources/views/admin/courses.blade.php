@@ -16,7 +16,7 @@
             <div class="col-sm-6 col-md-4">
               <div class="card">
                 <div class="card-header">{{$course->title}}</div>
-                <img src="{{asset('storage/'.$course->image)}}" />
+                <img src="{{asset('storage/'.$course->image)}}" alt="{{$course->title}}" title="{{$course->title}}"/>
                 <div class="card-body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
                   ut aliquip ex ea commodo consequat.</div>
               </div>

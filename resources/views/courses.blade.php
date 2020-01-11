@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-text">
-                    <h1 class="text-center">COURSES</h1>
+                    <h2 class="text-center">COURSES</h2>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                 <div class="single-item">
                     <div class="single-item-image overlay-effect">
                         <a href="/courses/{{$course->title}}/{{$course->id}}">
-                            <img src="{{asset('storage/'.$course->image)}}" alt="">
+                            <img src="{{asset('storage/'.$course->image)}}" alt="{{$course->title}}" title="{{$course->title}}">
                         </a>
                     </div>
                     <div class="single-item-text">
