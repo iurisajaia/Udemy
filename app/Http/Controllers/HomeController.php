@@ -5,6 +5,8 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Course;
 use App\Message;
+use App\Comment;
+use App\User;
 use Storage;
 
 class HomeController extends Controller
@@ -17,10 +19,12 @@ class HomeController extends Controller
     public function index(){
         $courses = Course::all();
         $messsages = Message::all();
+        $comments = Comment::all();
 
         $data = [
             'courses_count' => count($courses),
-            'messages_count' => count($messsages)
+            'messages_count' => count($messsages),
+            'comments_count' => count($comments)
         ];
 
         return view('admin/index')->with($data);
@@ -41,7 +45,7 @@ class HomeController extends Controller
     }
 
     public function courses(){
-        return view('admin/courses')->with('courses', Course::all());
+        return view('admin/courses')->with('courses', Course::orderBy('id', 'desc')->paginate(20));
     }
 
     // Store course
@@ -91,4 +95,6 @@ class HomeController extends Controller
 
         return redirect('home/courses');
     }
+
+    
 }

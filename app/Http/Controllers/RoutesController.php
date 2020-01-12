@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
-use DB;
+use App\User;
+use Auth;
 class RoutesController extends Controller{
 
     // Home Page
     public function homePage(){
-        return view('index')->with('courses' , Course::orderBy('id', 'desc')->take(3)->get());
+        return view('index')->with('courses' , Course::orderBy('id', 'desc')->with('comments')->take(6)->get());
     }
 
     // About Page
@@ -24,19 +25,21 @@ class RoutesController extends Controller{
 
     // Courses Page
     public function coursesPage(){
-        $courses = DB::table('courses')->paginate(10);
+        $courses = Course::orderBy('id', 'desc')->with('comments')->paginate(20);
+        
         return view('courses')->with('courses' , $courses);
     }
 
     // Courses Details Page
     public function coursesDetails($title , $id){
-        $course = Course::where('id' , $id)->firstOrFail();
+        $course = Course::where('id' , $id)->with('comments.user')->firstOrFail();
 
-        $courses = Course::orderBy('id', 'desc')->take(3)->get();
+        $courses = Course::orderBy('id', 'desc')->with('comments')->take(10)->get();
 
         $data = [
             'course' => $course,
-            'courses' => $courses
+            'courses' => $courses,
+            'comments' => $course->comments
         ];
 
         return view('details')->with($data);
@@ -62,4 +65,16 @@ class RoutesController extends Controller{
           })->paginate(10);
         return view('courses')->with('courses' , $courses);
     }
+
+    // Profile Page
+    public function profile($id){
+        $user = User::where('id' , $id)->firstOrFail();
+
+        if(Auth::user()->id === $user->id){
+            return view('profile')->with('user' , $user);
+        }else{
+            return redirect()->back();
+        }
+    }
+
 }

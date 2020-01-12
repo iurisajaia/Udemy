@@ -98,7 +98,7 @@
 <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
 
 <ul>
-        <li>By email: sajaiaiuri@gmail.com</li>
+        <li>By email: support@freeonlinecourses.me</li>
           <li>By visiting this page on our website: freeonlinecourses.me</li>
       </ul>
                     </div>

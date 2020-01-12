@@ -16,8 +16,10 @@
             <div class="col-sm-6 col-md-4">
               <div class="card">
                 <div class="card-header">{{$course->title}}</div>
+                <a href="/courses/{{$course->title}}/{{$course->id}}">
                 <img src="{{asset('storage/'.$course->image)}}" alt="{{$course->title}}" title="{{$course->title}}" class="img-thumbnail"/>
-                  <div class="card-footer d-flex">
+                </a>  
+                <div class="card-footer d-flex">
                     <form action="/home/delete/{{$course->id}}" method="POST">
                         @csrf
                         @method('DELETE')
@@ -31,6 +33,7 @@
           @endforeach
         </div>
       </div>
+      {{$courses->links()}}
     </div>
 
 @endsection

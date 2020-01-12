@@ -23,18 +23,13 @@
             <div class="col-lg-4 col-md-12">
                 <h4 class="contact-title">contact info</h4>
                 <div class="contact-text">
-                    <p><span class="c-icon"><i class="zmdi zmdi-phone"></i></span><span class="c-text">+88 018 785 454 589</span></p>
-                    <p><span class="c-icon"><i class="zmdi zmdi-email"></i></span><span class="c-text">info@example.com</span></p>
-                    <p><span class="c-icon"><i class="zmdi zmdi-pin"></i></span><span class="c-text">House 09, Road 32, Mohammadpur,<br>
-                    Dhaka-1200, UK</span></p>
+                    <p><span class="c-icon"><i class="zmdi zmdi-phone"></i></span><span class="c-text">+995 598-29-79-61</span></p>
+                    <p><span class="c-icon"><i class="zmdi zmdi-email"></i></span><span class="c-text">support@freeonlinecourses.me</span></p>
                 </div>
                 <h4 class="contact-title">social media</h4>
                 <div class="link-social">
-                    <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                    <a href="#"><i class="zmdi zmdi-rss"></i></a>
-                    <a href="#"><i class="zmdi zmdi-google-plus"></i></a>
-                    <a href="#"><i class="zmdi zmdi-pinterest"></i></a>
-                    <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
                 </div>
             </div>
             <div class="col-lg-8 col-md-12">
@@ -43,13 +38,13 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="text" name="name" placeholder="name">
+                            <input type="text" required name="name" placeholder="name">
                         </div>
                         <div class="col-md-6">
-                            <input type="email" name="email" placeholder="Email">
+                            <input type="email" required name="email" placeholder="Email">
                         </div>
                         <div class="col-md-12">
-                            <textarea name="text" cols="30" rows="10" placeholder="Message"></textarea>
+                            <textarea name="text"  required cols="30" rows="10" placeholder="Message"></textarea>
                             <button type="submit" class="button-default">SUBMIT</button>
                         </div>
                     </div>

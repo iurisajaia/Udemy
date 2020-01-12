@@ -23,7 +23,6 @@
                     <div class="section-title-wrapper">
                         <div class="section-title">
                             <h3>Who we are</h3>
-                            <p>There are many variations of passages</p>
                         </div>
                     </div>
                 </div>

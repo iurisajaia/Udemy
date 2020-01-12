@@ -48,7 +48,11 @@
                         <h4><a href="/courses/{{$course->title}}/{{$course->id}}">{{$course->title}}</a></h4>
                         <div class="single-item-text-info">
                             <span>Author: <span>{{$course->author}}</span></span>
-                            {{-- <span>Date: <span>{{$course->created_at->format('Y-m-d')}}</span></span> --}}
+                            <br/>
+                            <span>Date: <span>{{$course->created_at->format('Y-m-d')}}</span></span>
+                            <br/>
+                            <span><i class="fa fa-comments"></i> {{count($course->comments)}}</span>
+
                         </div> 
                     </div>
                     <div class="button-bottom">

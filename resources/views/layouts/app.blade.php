@@ -42,9 +42,6 @@
         		============================================ -->
                 <link rel="stylesheet" href={{ URL::asset('css/font-awesome.min.css')}}>
 
-        		<!-- Metarial Iconic Font CSS
-        		============================================ -->
-
                 <!-- Bootstrap CSS
         		============================================ -->
                 <link rel="stylesheet" href={{ URL::asset('css/bootstrap.min.css')}}>
@@ -77,7 +74,6 @@
                 <!--Bg White Start-->
                 <div class="bg-white">
                     <!--Header Area Start-->
-                    @if (!Request::is('login')) 
                        
                     <header>
                         <div class="header-logo-menu sticker">
@@ -99,29 +95,25 @@
                                                         <li><a href="/about">About</a></li>
                                                         <li><a href="/courses">Courses</a></li>
                                                         <li><a href="/contact">Contact</a></li>
+
+                                                        @if(Auth::user() and Auth::user()->isAdmin())
+                                                            <li><a href="/home">Dahboard</a></li>
+                                                        @endif
                                                         @if(Auth::user())
-                                                        <li><a href="/home">Dahboard</a></li>
+                                                        <li><a href="/profile/{{Auth::user()->id}}">{{Auth::user()->name}}</a></li>
+                                                        <li>
+                                                            <form action="/logout" method="POST">
+                                                                @csrf
+                                                                <button class="btn btn-info">Log Out</button>
+                                                            </form>
+                                                        </li>
+                                                        @else
+                                                        <li>
+                                                            <a href="/login">Login</a>
                                                         @endif
                                                     </ul>
                                                 </nav>
                                             </div>
-                                            <ul class="header-search">
-                                                <li class="search-menu">
-                                                    <i id="toggle-search" class="zmdi zmdi-search-for"></i>
-                                                </li>
-                                            </ul>
-                                            <!--Search Form-->
-                                            <div class="search">
-                                                <div class="search-form">
-                                                    <form id="search-form" action="#">
-                                                        <input type="search" placeholder="Search here..." name="search" />
-                                                        <button type="submit">
-                                                            <span><i class="fa fa-search"></i></span>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <!--End of Search Form-->
                                         </div>
                                     </div>
                                 </div>
@@ -139,6 +131,21 @@
                                                     <li><a href="/about">About Us</a></li>
                                                     <li><a href="/courses">Courses</a></li>
                                                     <li><a href="/contact">Contact us</a></li>
+                                                    @if(Auth::user() and Auth::user()->isAdmin())
+                                                            <li><a href="/home">Dahboard</a></li>
+                                                        @endif
+                                                        @if(Auth::user())
+                                                        <li><a href="/profile/{{Auth::user()->id}}">{{Auth::user()->name}}</a></li>
+                                                        <li>
+                                                            <form action="/logout" method="POST">
+                                                                @csrf
+                                                                <button class="btn btn-info">Log Out</button>
+                                                            </form>
+                                                        </li>
+                                                        @else
+                                                        <li>
+                                                            <a href="/login">Login</a>
+                                                        @endif
                                                 </ul>
                                             </nav>
                                         </div>
@@ -150,7 +157,6 @@
                     </header>
                     <!--End of Header Area-->
                 
-                    @endif
 
 
 
@@ -161,7 +167,6 @@
                     {{-- /Content --}}
 
 
-                    @if (!Request::is('login')) 
                     <!--Footer Widget Area Start-->
                     <div class="footer-widget-area">
                         <div class="container">
@@ -173,7 +178,7 @@
                                                 <img src="{{ URL::asset('img/logo/footer.png')}}" alt="Free Online Courses" title="Free Online Courses">
                                             </a>
                                         </div>
-                                        <p>There are many variations of passg of Lorem Ipsum available, but thmajority have suffered altem, </p>
+                                        <p>Download your favourite courses for free</p>
                                         <div class="social-icons">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
                                             <a href="#"><i class="fa fa-google-plus"></i></a>
@@ -184,7 +189,7 @@
                                     <div class="single-footer-widget">
                                         <h3>GET IN TOUCH</h3>
                                         <a href="tel:555-555-1212"><i class="fa fa-phone"></i>+995-598-29-79-61</a>
-                                        <span><i class="fa fa-envelope"></i>sajaiaiuri@gmail.com</span>
+                                        <span><i class="fa fa-envelope"></i>support@freeonlinecourses.me</span>
                                         <span><i class="fa fa-globe"></i>www.freeonlinecourses.me</span>
                                     </div>
                                 </div>
@@ -203,7 +208,6 @@
                             </div>
                         </div>
                     </div>
-                    @endif
 
     <!--End of Footer Widget Area-->
 

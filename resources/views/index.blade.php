@@ -21,23 +21,26 @@
                     <div class="section-title-wrapper">
                         <div class="section-title">
                             <h3>Latest Courses</h3>
-                            <p>There are many variations of passages of Lorem Ipsum</p>
+                            <p>Download your favourite courses for free</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 @foreach($courses as $course)
-                <div class="col-lg-4 col-md-6 col-12">
+                <div class="col-lg-4 col-md-6 col-12 mb-5 mt-5">
                     <div class="single-item">
                         <div class="single-item-image overlay-effect">
-                            <a href="/courses/{$course->title}/{{$course->id}}"><img src="{{asset('storage/'.$course->image)}}" alt=""></a>
+                            <a href="/courses/{{$course->title}}/{{$course->id}}"><img src="{{asset('storage/'.$course->image)}}" alt=""></a>
                         </div>
                         <div class="single-item-text">
                             <h4><a href="/courses/{{$course->title}}/{{$course->id}}">{{$course->title}}</a></h4>
                             <div class="single-item-text-info">
                                 <span>By: <span>{{$course->author}}</span></span>
+                                <br/>
                                 <span>Date: <span>{{$course->created_at->format('Y-m-d')}}</span></span>
+                                <br/>
+                                <span><i class="fa fa-comments"></i> {{count($course->comments)}}</span>
                             </div>
                         </div>
                         <div class="button-bottom">

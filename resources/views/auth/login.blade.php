@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-5">
         <div class="col-md-8">
             <div class="card mt-3">
                 <div class="card-header">{{ __('Login') }}</div>
@@ -57,11 +57,11 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                {{-- @if (Route::has('password.request')) --}}
+                                    <a class="btn btn-link" href="/register">
+                                        Register
                                     </a>
-                                @endif
+                                {{-- @endif --}}
                             </div>
                         </div>
                     </form>

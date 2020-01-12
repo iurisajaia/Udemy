@@ -1099,7 +1099,7 @@ body {
 .single-item {
     background: #f6f6f6 none repeat scroll 0 0;
     border-bottom: 3px solid #86bc42;
-    padding: 0 35px;
+    padding: 0 15px;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     margin-bottom: 20px;
@@ -1169,352 +1169,7 @@ body {
     position: relative;
     top: 4px;
 }
-/*----------------------------------------*/
-/*  6. Fun Factor Area
-/*----------------------------------------*/
-.fun-factor-area {
-    background: rgba(0, 0, 0, 0) url("img/banner/2.jpg") repeat scroll 0 0;
-    color: #ffffff;
-    padding: 100px 0;
-}
-.single-fun-factor {font-family: "montserratregular"; text-align: center;}
-.single-fun-factor > h4 {
-    font-size: 30px;
-    line-height: 30px;
-    margin-bottom: 41px;
-    position: relative;
-}
-.single-fun-factor > h4:after {
-    background: #ffffff none repeat scroll 0 0;
-    bottom: -11px;
-    content: "";
-    height: 2px;
-    left: 0;
-    margin: auto;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    width: 77px;
-}
-.single-fun-factor h2 {font-size: 62px; line-height: 46px;}
-/*----------------------------------------*/
-/*  7. Latest News Area
-/*----------------------------------------*/
-.latest-area {padding: 120px 0 70px;}
-.single-latest-text > h3 {
-    font-family: raleway;
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-.single-latest-item {
-    overflow: hidden;
-    margin-bottom: 50px;
-    -webkit-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s
-}
-.single-latest-item:hover {box-shadow: 2px 5px 25px rgba(34, 30, 31, 0.25);}
-.single-latest-text > h3 a {color: #2d3e50;}
-.single-latest-image {float: left;}
-.single-latest-image a {display: inline-block}
-.single-latest-text {
-    background: #f6f6f6 none repeat scroll 0 0;
-    border-bottom: 2px solid #86bc42;
-    overflow: hidden;
-    padding: 30px 0 27px 35px;
-}
-.single-latest-item .single-item-comment-view span {margin-right: 13px;}
-.single-latest-item .single-item-comment-view {
-    display: block;
-    margin-bottom: 2px;
-}
-.single-latest-item .button-default {
-    font-size: 12px;
-    margin-top: 7px;
-    padding: 4px 21px;
-}
-.single-latest-item:hover .button-default {background: #2D3E50 none repeat scroll 0 0;}
-/*----------------------------------------*/
-/*  8. Online Product Area
-/*----------------------------------------*/
-.single-product-item {box-shadow: 0 0 8px rgba(34, 30, 31, 0.3);}
-.single-product-image {text-align: center;}
-.single-product-image img {width: 100%;}
-.single-product-text > h4 a {
-    color: #4c4c4c;
-    display: block;
-    font-size: 18px;
-    margin-bottom: 4px;
-}
-.single-product-text {
-    background: #f6f6f6 none repeat scroll 0 0;
-    border-bottom: 3px solid #86bc42;
-    padding: 23px 24px 22px;
-}
-.single-product-text h5 {
-    color: #696969;
-    font-family: "montserratregular";
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-.product-price > h3 {
-    color: #4c4c4c;
-    display: inline-block;
-    float: left;
-    font-size: 24px;
-}
-.product-price {margin-bottom: 23px; overflow: hidden;}
-.product-buttons {overflow: hidden;}
-.single-product-text .button-default {
-    border: 0 none;
-    display: block;
-    float: left;
-    font-size: 16px;
-    line-height: 27px;
-    margin-left: 8px;
-    padding: 0;
-    -webkit-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
-    width: 27px;
-    cursor: pointer;
-}
-.single-product-text .button-default:hover {background: #2d3e50 none repeat scroll 0 0;}
-.single-product-text .button-default.cart-btn {
-    font-size: 11px;
-    line-height: 27px;
-    margin-left: 0;
-    padding: 0 14px;
-    width: auto;
-}
-.single-product-item:hover .button-default.cart-btn {background: #2d3e50 none repeat scroll 0 0;}
-/*----------------------------------------*/
-/*  9. Testimonial Area
-/*----------------------------------------*/
-.testimonial-area {
-    background: rgba(0, 0, 0, 0) url("img/banner/3.jpg") no-repeat scroll 0 0 / cover;
-    overflow: hidden;
-    padding: 95px 0 82px;
-    position: relative;
-}
-.testimonial-area:after {
-    background: rgba(45, 62, 80, 0.9) none repeat scroll 0 0;
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-}
-.testimonial-image-slider {margin-top: 5px}
-.slick-list {margin: 0 5px}
-.sin-testiImage {
-    display: inline-block;
-    margin-bottom: 11px;
-    outline: medium none;
-}
-.sin-testiImage img {
-    border: 1px solid #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    display: inline-block !important;
-    height: 80px;
-    margin-bottom: 30px;
-    margin-top: 36px;
-    outline: 0 none;
-    width: 80px;
-}
-.sin-testiImage.slick-current img {
-    border: 2px solid #fff;
-    height: 146px;
-    margin-top: 0;
-    opacity: 1;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    width: 146px;
-}
-.testimonial-text-slider h2 {
-    color: #ffffff;
-    display: block;
-    font-family: "montserratregular";
-    font-size: 30px;
-    font-weight: 600;
-    line-height: 24px;
-}
-.testimonial-text-slider {
-    margin: auto;
-    padding: 0;
-    position: relative;
-    width: 51%;
-    z-index: 9;
-}
-.sin-testiText{outline: none}
-.sin-testiText p {margin-top: 22px; color: #fff; line-height: 24px}
-.slick-prev, .slick-next {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border: medium none;
-    color: rgba(0, 0, 0, 0);
-    cursor: pointer;
-    display: block;
-    font-size: 0;
-    height: 25px;
-    outline: medium none;
-    padding: 0;
-    position: absolute;
-    top: 34.6%;
-    width: 16px;
-}
-.slick-prev {left: -31px}
-.slick-next {right: -31px}
-.slick-prev:before, .slick-next:before {
-    height: 25px;
-    width: 16px;
-    left: 0;
-    top: 0;
-    position: absolute;
-    color: #fff;
-    content: "";
-    font-family: "Material-Design-Iconic-Font";
-    font-size: 50px !important;
-    -webkit-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
-}
-.slick-next:before {
-    right: 0;
-    content: "";
-}
-.slick-slider {z-index: 9;}
-.testimonial-area:hover .slick-prev:before, .testimonial-area:hover .slick-next:before {opacity: 1;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"}
-/*----------------------------------------*/
-/*  10. Event Area
-/*----------------------------------------*/
-.single-event-image > a {display: block; position: relative;}
-.single-event-image > span {
-    background: #2d3e50 none repeat scroll 0 0;
-    bottom: 0;
-    content: "";
-    height: 96px;
-    left: 0;
-    position: absolute;
-    width: 96px;
-}
-.single-event-image a > span {
-    background: #2d3e50 none repeat scroll 0 0;
-    bottom: 0;
-    color: #ffffff;
-    font-family: "montserratregular";
-    font-size: 24px;
-    height: 96px;
-    left: 0;
-    line-height: 35px;
-    padding-top: 16px;
-    position: absolute;
-    width: 96px;
-}
-.single-event-image span {
-    display: block;
-    font-family: "montserratsemi_bold";
-    font-size: 42px;
-    text-align: center;
-}
-.single-event-text > h3 a, .single-event-text > h3 {color: #4c4c4c;}
-.single-event-text > h3 {
-    font-family: "montserratregular";
-    margin-bottom: 5px;
-    font-size: 24px;
-}
-.single-event-text {
-    background: #f6f6f6 none repeat scroll 0 0;
-    border-bottom: 2px solid #86bc42;
-    padding: 29px 34px 35px;
-}
-.single-event-item .single-item-comment-view {margin-bottom: 12px;}
-.single-event-item .single-item-comment-view span {margin-right: 12px;}
-.single-event-item .single-item-comment-view span:last-child {margin-right: 0;}
-.single-event-item .button-default {
-    margin-top: 16px;
-    padding: 6px 23px;
-}
-.single-event-item:hover .button-default {background: #2d3e50 none repeat scroll 0 0;}
-.single-event-item {box-shadow: 0 0 8px rgba(34, 30, 31, 0.3);}
-/*----------------------------------------*/
-/*  11. Newsletter Area
-/*----------------------------------------*/
-.newsletter-area {
-    background: #2d3e50 none repeat scroll 0 0;
-    color: #ffffff;
-    position: relative;
-}
-.newsletter-area:before {
-    height: 148px;
-    left: 0;
-    right: auto;
-    top: -20px;
-    width: 44%;
-}
-.newsletter-area:after {
-    border-width: 74.5px 40px;
-    left: 44%;
-    right: auto;
-    top: -20px;
-}
-.newsletter-content h2, .newsletter-content h3 {font-family: raleway; font-weight: 700; font-size: 30px}
-.newsletter-content > h3 {margin-bottom: 2px; font-size: 24px}
-.subscribe-form input {
-    color: #696969;
-    height: 100%;
-    padding-left: 15px;
-    width: 100%;
-    border: 0;
-}
-.subscribe-form > button {
-    border: 2px solid #86bc42;
-    font-family: raleway;
-    font-weight: 700;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    -webkit-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
-    width: 34%;
-    color: #fff;
-    cursor: pointer;
-}
-.subscribe-form > button:hover {
-    background: #FFF;
-    border: 2px solid #86bc42;
-}
-.newsletter-form {overflow: hidden; padding: 36px 0;}
-.subscribe-form {
-    float: right;
-    height: 56px;
-    position: relative;
-    width: 525px;
-}
-.subscribe-form:before {
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    border-color: #fff #fff transparent transparent;
-    -o-border-image: none;
-    border-image: none;
-    border-style: solid;
-    border-width: 28px 15px;
-    content: "";
-    height: 5px;
-    left: -30px;
-    position: absolute;
-    top: 0;
-    width: 0;
-}
-.newsletter-content {
-    padding-top: 26px;
-    z-index: 9;
-    position: relative;
-}
+
 /*----------------------------------------*/
 /*  12. Footer Widget Area
 /*----------------------------------------*/
@@ -2071,6 +1726,7 @@ span.comment-time {padding-right: 3px; position: relative;}
     margin-bottom: 15px;
     overflow: hidden;
 }
+
 .sidebar-widget .single-teacher-text {padding: 20px 0 32px; position: inherit;}
 .tutor-image {padding-top: 37px; text-align: center;}
 .tutor-image > img {border: 2px solid #86bc42; border-radius: 50%;}
@@ -2109,7 +1765,8 @@ span.comment-time {padding-right: 3px; position: relative;}
 .single-sidebar-widget .single-item:hover {box-shadow: none;}
 .single-sidebar-widget .single-item {
     background: #f6f6f6 none repeat scroll 0 0;
-    margin-top: 52px;
+    margin-top: 70px;
+    margin-bottom: 72px;
     padding: 0 26px;
     border-bottom: 2px solid #86bc42;
 }
@@ -2129,7 +1786,7 @@ span.comment-time {padding-right: 3px; position: relative;}
 /*  19. Event Page
 /*----------------------------------------*/
 .breadcrumb-banner-area {
-    background: rgba(0, 0, 0, 0) url("img/banner/4.jpg") no-repeat scroll 0 0;
+    /* background: rgba(0, 0, 0, 0) url("img/banner/4.jpg") no-repeat scroll 0 0; */
     color: #ffffff;
     padding: 40px 0;
     position: relative;
@@ -2137,7 +1794,7 @@ span.comment-time {padding-right: 3px; position: relative;}
 .breadcrumb-banner-area .text-center{
     padding-bottom: 0!important;
 }
-.breadcrumb-banner-area.fixed-bg {background: url("img/slider/3.jpg") no-repeat fixed top center / cover}
+/* .breadcrumb-banner-area.fixed-bg {background: url("img/slider/3.jpg") no-repeat fixed top center / cover} */
 .breadcrumb-banner-area.no-bg {background: rgba(0, 0, 0, 0) none repeat scroll 0 0;}
 .breadcrumb-text {z-index: 9; position: relative;}
 .breadcrumb-banner-area:after {
@@ -2208,151 +1865,7 @@ span.comment-time {padding-right: 3px; position: relative;}
     box-shadow: 2px 0 20px rgba(34, 30, 31, 0.2);
     margin: 20px 0 17px;
 }
-.s-content {
-    display: block;
-    line-height: 0;
-    text-align: center;
-}
-.pagination-content .pagination > li:last-child > a, .pagination-content .pagination > li:last-child > span, .pagination-content .pagination > li:first-child > a, .pagination-content .pagination > li:first-child > span {
-    border-radius: 0;
-}
-.pagination-content .pagination li a {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border: 0 none;
-    color: #ffffff;
-    font-size: 28px;
-    height: 41px;
-    line-height: 41px;
-    margin: 0 14px;
-    padding: 0;
-    width: 48px;
-    display: block;
-}
-.pagination-content .pagination li.current > a, .pagination-content .pagination li a:hover {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    color: #2d3e50;
-}
-.pagination-content .pagination li:first-child a {margin-left: 0;}
-.pagination-content .pagination li:last-child a {margin-right: 0;}
-/*----------------------------------------*/
-/*  20. Event Details Page
-/*----------------------------------------*/
-/*----------------------------------------*/
-/*  20.1 Event Details Content
-/*----------------------------------------*/
-.event-details-content .single-event-item {
-    background: #f6f6f6 none repeat scroll 0 0;
-    border-bottom: 2px solid #86bc42;
-    padding: 0 35px;
-}
-.single-event-image img {width: 100%;}
-.event-details-content .single-event-text h3 {font-size: 28px;}
-.event-details-content .single-event-text > p {color: #4e4e4e; line-height: 24px;}
-.event-details-content .single-event-text {border: 0 none; padding: 32px 0 40px;}
-.event-details-content .comments {padding: 71px 0 20px;}
-/*----------------------------------------*/
-/*  20.2 Event Details Sidebar
-/*----------------------------------------*/
-.recent-content-item > a {
-    border: 1px solid #86bc42;
-    display: inline-block;
-    float: left;
-}
-.recent-text {overflow: hidden; padding-left: 20px;}
-.recent-text > h4 {
-    font-family: raleway;
-    font-size: 14px;
-    font-weight: 600;
-}
-.recent-text > h4 a {color: #6b6b6b;}
-.recent-text .single-item-comment-view > span {
-    color: #b2b2b2;
-    font-size: 11px;
-    line-height: 12px;
-    margin-right: 13px;
-}
-.recent-text .single-item-comment-view i {font-size: 13px;}
-.recent-text > p {
-    color: #6b6b6b;
-    font-size: 12px;
-    line-height: 16px;
-    margin: 0;
-}
-.recent-content-item {margin-bottom: 22px; overflow: hidden;}
-.recent-content-item:last-child {margin-bottom: 0;}
-.recent-text .single-item-comment-view {display: block;}
-/*----------------------------------------*/
-/*  21. latest News Page
-/*----------------------------------------*/
-.latest-page {padding: 120px 0}
-/*----------------------------------------*/
-/*  22. News Details Page
-/*----------------------------------------*/
-/*----------------------------------------*/
-/*  22.1 News Details Content
-/*----------------------------------------*/
-.news-details-content .single-latest-text > h3 {
-    color: #616161;
-    font-size: 24px;
-    margin-bottom: 8px;
-}
-.news-details-content .single-latest-text p {
-    color: #4c4c4c;
-    line-height: 23px;
-    margin-bottom: 23px;
-}
-.news-details-content .single-latest-text {padding: 75px 72px 0;}
-.news-details-content .single-latest-item .single-item-comment-view {margin-bottom: 8px;}
-.quote-section {
-    background: #efefef none repeat scroll 0 0;
-    border-left: 2px solid #86bc42;
-    margin: 38px 0 39px 35px;
-    overflow: hidden;
-    padding: 17px 37px 1px 27px;
-}
-.quote-section p {margin: 0;}
-.related-tag .tags {display: inline-block;}
-.related-tag .tags li a {color: #898989;}
-.related-tag .tags li {display: inline-block;}
-.related-tag, .news-details-content .social-links > span {
-    color: #4c4c4c;
-    font-family: "montserratregular";
-    display: inline-block;
-}
-.news-details-content .single-latest-item:hover {box-shadow: none;}
-.tags-and-links {
-    overflow: hidden;
-    padding-bottom: 15px;
-    padding-top: 50px;
-}
-.news-details-content .social-links > span {margin-right: 11px;}
-.news-details-content .social-links {
-    display: inline-block;
-    float: right;
-    margin-right: 47px;
-    position: inherit;
-    width: auto;
-}
-.news-details-content .social-links > a {
-    font-size: 13px;
-    height: 23px;
-    line-height: 21px;
-    margin: 0 2px;
-    width: 23px;
-}
-.news-details-content .single-latest-item {margin-bottom: 17px;}
-/*----------------------------------------*/
-/*  22.2 News Details Sidebar
-/*----------------------------------------*/
-.comment .recent-content-item > a {
-    border: 2px solid #e6e7e8;
-    border-radius: 2px;
-    height: 70px;
-    width: 70px;
-}
-.comment .recent-content-item > a img {width: 100%;}
-.comment .recent-text > h4 a {font-family: "montserratsemi_bold";}
-.comment .recent-text > h4 {line-height: 31px;}
+
 /*----------------------------------------*/
 /*  23. Contact Page
 /*----------------------------------------*/
