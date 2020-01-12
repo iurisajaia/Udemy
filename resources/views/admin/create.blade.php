@@ -38,6 +38,17 @@
               </div>
             </div>
             <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="file-input">Category</label>
+              <div class="col-md-9">
+                <select name="category_id" id="" class="form-control">
+                  @foreach($categories as $cat)
+                  <option value="{{$cat->id}}">{{$cat->title}}</option>
+                  @endforeach
+
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
               <label class="col-md-3 col-form-label" for="file-input">Image</label>
               <div class="col-md-9">
                 <input id="file-input" type="file" name="image">

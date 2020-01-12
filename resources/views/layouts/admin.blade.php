@@ -63,8 +63,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/home/create">
-                <i class="nav-icon icon-speedometer"></i> Create
+              <a class="nav-link" href="/home/categories">
+                <i class="nav-icon icon-speedometer"></i> Categories
               </a>
             </li>
             <li class="nav-item">
@@ -72,6 +72,17 @@
                 <i class="nav-icon icon-speedometer"></i> Messages
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/home/create">
+                <i class="nav-icon icon-speedometer"></i> Create Course
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/home/create/category">
+                <i class="nav-icon icon-speedometer"></i> Create Category
+              </a>
+            </li>
+            
           </ul>
         </nav>
       </div>

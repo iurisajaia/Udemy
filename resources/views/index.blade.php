@@ -41,6 +41,8 @@
                                 <span>Date: <span>{{$course->created_at->format('Y-m-d')}}</span></span>
                                 <br/>
                                 <span><i class="fa fa-comments"></i> {{count($course->comments)}}</span>
+                                <br/>
+                                <span><i class="fa fa-cloud"></i> {{$course->category->title}}</span>
                             </div>
                         </div>
                         <div class="button-bottom">

@@ -94,6 +94,13 @@
                                                         <li class="current"><a href="/">Home</a></li>
                                                         <li><a href="/about">About</a></li>
                                                         <li><a href="/courses">Courses</a></li>
+                                                        <li><a href="/categories">Category</a>
+                                                            <ul class="sub-menu">
+                                                                @foreach($categories as $cat)
+                                                                <li><a href="/category/{{$cat->title}}">{{$cat->title}}</a></li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </li>
                                                         <li><a href="/contact">Contact</a></li>
 
                                                         @if(Auth::user() and Auth::user()->isAdmin())

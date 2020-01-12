@@ -19,6 +19,7 @@ Route::post('/message', 'MessageController@send'); // Send Message
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/comment' , 'CommentController@store'); // Add Comment
     Route::get('/profile/{id}' , 'RoutesController@profile'); // User Profile
+    Route::put('/user/update/{id}' , 'RoutesController@updateProfile'); // Update User Profile
 });
 
 // For Admin
@@ -31,4 +32,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/home/edit/{id}', 'HomeController@edit'); // Edit Course View
     Route::put('/home/update/{id}' , 'HomeController@update'); // Update Course
     Route::get('/home/messages', 'MessageController@index'); // Messages View
+    Route::get('/home/categories' , 'HomeController@categories'); // Categories View
+    Route::get('/home/create/category' , 'HomeController@createCategory'); // Create Category View
+    Route::post('/home/store/category', 'HomeController@storeCategory'); // Store Category
+
 });

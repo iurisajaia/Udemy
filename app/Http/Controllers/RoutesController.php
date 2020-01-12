@@ -5,12 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Course;
 use App\User;
+use App\Category;
 use Auth;
+use Hash;
 class RoutesController extends Controller{
 
     // Home Page
     public function homePage(){
-        return view('index')->with('courses' , Course::orderBy('id', 'desc')->with('comments')->take(6)->get());
+        $courses = Course::orderBy('id', 'desc')->with(['comments' ,'category'])->take(6)->get();
+        $categories = Category::all();
+
+        $data = [
+            'courses' => $courses,
+            'categories' => $categories
+        ];
+
+        return view('index')->with($data);
     }
 
     // About Page
@@ -75,6 +85,21 @@ class RoutesController extends Controller{
         }else{
             return redirect()->back();
         }
+    }
+
+    // Update User 
+    public function updateProfile(Request $request, $id){
+        $user = User::where('id', $id)->firstOrFail();
+
+        if($user->id === Auth::user()->id){
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save();
+            return redirect('/');
+        }else{
+            return redirect()->back();
+        }
+
     }
 
 }

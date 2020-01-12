@@ -7,6 +7,7 @@ use App\Course;
 use App\Message;
 use App\Comment;
 use App\User;
+use App\Category;
 use Storage;
 
 class HomeController extends Controller
@@ -24,7 +25,7 @@ class HomeController extends Controller
         $data = [
             'courses_count' => count($courses),
             'messages_count' => count($messsages),
-            'comments_count' => count($comments)
+            'comments_count' => count($comments),
         ];
 
         return view('admin/index')->with($data);
@@ -41,7 +42,7 @@ class HomeController extends Controller
     }
 
     public function create(){
-        return view('admin/create');
+        return view('admin/create')->with('categories' , Category::all());
     }
 
     public function courses(){
@@ -60,6 +61,7 @@ class HomeController extends Controller
             'title' => $request->title,
             'author' => $request->author,
             'description' => $request->description,
+            'category_id' => $request->category_id,
             'image' => $image,
             'file' => $file
         ]);
@@ -96,5 +98,18 @@ class HomeController extends Controller
         return redirect('home/courses');
     }
 
-    
+    public function categories(){
+        return view('admin/categories')->with('categories' , Category::all());
+    }
+
+    public function createCategory(){
+        return view('admin/create-category');
+    }
+
+    public function storeCategory(Request $request){
+        Category::create([
+            'title' => $request->title,
+        ]);
+        return redirect('/home/categories');
+    }
 }
