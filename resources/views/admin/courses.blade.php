@@ -16,8 +16,9 @@
             <div class="col-sm-6 col-md-4">
               <div class="card">
                 <div class="card-header">{{$course->title}}</div>
-                <a href="/courses/{{$course->title}}/{{$course->id}}">
+                <a href="/course/{{str_slug($course->title)}}/{{$course->id}}">
                 <img src="{{asset('storage/'.$course->image)}}" alt="{{$course->title}}" title="{{$course->title}}" class="img-thumbnail"/>
+                <span>{{$course->category->title}}
                 </a>  
                 <div class="card-footer d-flex">
                     <form action="/home/delete/{{$course->id}}" method="POST">

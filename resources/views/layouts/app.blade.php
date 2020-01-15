@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>@isset( $seo ){{$seo["title"]}}@endif</title>
 
-        <title>Free Online Courses - freeonlinecourses.me</title>
-        <meta name="description" content="Download best online courses for free" />
-        <meta name="robots" content="index, follow" />
-        <meta name="keywoards" 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="@isset( $seo ){{$seo["title"]}}@endif" name="title" />
+    <meta content="@isset( $seo ){{$seo["description"]}}@endif" name="description" />
+    
+
+    <meta content="@isset( $seo ){{$seo["title"]}}@endif" property="og:title" />
+    <meta content="@isset( $seo ){{$seo["description"]}}@endif" property="og:description" />
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="FreeOnlineCourses.me"/>
+    <meta content="FreeOnlineCourses.me" name="author" />
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="canonical" href="@isset( $seo ){{@$seo["canonical"]}}@endif"/>
+
+    <meta name="keywoards" 
         content="
         online classes , 
         free online courses , 
@@ -26,8 +40,27 @@
         laravel tutorial
         " 
         />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156256604-1"></script>
+<script defer>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156256604-1');
+</script>
+
+        
+{{--     
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Free Online Courses - freeonlinecourses.me</title>
+        <meta name="description" content="Download best online courses for free" />
+        <meta name="robots" content="index, follow" />
+        
         <meta name="og:title" property="og:title" content="freeonlinecourses.me - Free Online Courses"/>
-        <meta name="title" content="Free Online Courses - freeonlinecourses.me" />
+        <meta name="title" content="Free Online Courses - freeonlinecourses.me" /> --}}
 
 
 
@@ -39,16 +72,16 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Fontawsome CSS
-        		============================================ -->
-                <link rel="stylesheet" href={{ URL::asset('css/font-awesome.min.css')}}>
+            
+                ============================================ -->
+                <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans|Roboto+Condensed&display=swap" rel="stylesheet">
+
+
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
 
                 <!-- Bootstrap CSS
         		============================================ -->
                 <link rel="stylesheet" href={{ URL::asset('css/bootstrap.min.css')}}>
-
-        		<!-- Plugins CSS
-        		============================================ -->
-                <link rel="stylesheet" href={{ URL::asset('css/plugins.css')}}>
 
         		<!-- Style CSS
         		============================================ -->
@@ -87,20 +120,13 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-9 col-12">
-                                        <div class="mainmenu-area pull-right">
+                                        <div class="mainmenu-area pull-right text-right">
                                             <div class="mainmenu d-none d-lg-block">
                                                 <nav>
                                                     <ul id="nav">
                                                         <li class="current"><a href="/">Home</a></li>
                                                         <li><a href="/about">About</a></li>
                                                         <li><a href="/courses">Courses</a></li>
-                                                        <li><a href="/categories">Category</a>
-                                                            <ul class="sub-menu">
-                                                                @foreach($categories as $cat)
-                                                                <li><a href="/category/{{$cat->title}}">{{$cat->title}}</a></li>
-                                                                @endforeach
-                                                            </ul>
-                                                        </li>
                                                         <li><a href="/contact">Contact</a></li>
 
                                                         @if(Auth::user() and Auth::user()->isAdmin())
@@ -186,18 +212,18 @@
                                             </a>
                                         </div>
                                         <p>Download your favourite courses for free</p>
-                                        <div class="social-icons">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                                        </div>
+                                        {{-- <div class="social-icons"> --}}
+                                            {{-- <a href="#"><i class="fa fa-facebook"></i></a> --}}
+                                            {{-- <a href="#"><i class="fa fa-google-plus"></i></a> --}}
+                                        {{-- </div> --}}
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="single-footer-widget">
                                         <h3>GET IN TOUCH</h3>
                                         <a href="tel:555-555-1212"><i class="fa fa-phone"></i>+995-598-29-79-61</a>
-                                        <span><i class="fa fa-envelope"></i>support@freeonlinecourses.me</span>
-                                        <span><i class="fa fa-globe"></i>www.freeonlinecourses.me</span>
+                                        <a href="support@freeonlinecourses.me"><i class="fa fa-envelope"></i>support@freeonlinecourses.me</a>
+                                        <a href="https://www.facebook.com/bestonlinecoursesforfree"><i class="fa fa-facebook"></i>@bestonlinecoursesforfree</a>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6">
@@ -220,7 +246,7 @@
 
 
             <script type="text/javascript" src=https://code.jquery.com/jquery-3.4.1.min.js></script>
-            <script type="text/javascript" src={{ URL::asset('js/bootstrap.min.js')}}></script>
+            <script type="text/javascript" src=https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js></script>
                     
         </body>
 </html>

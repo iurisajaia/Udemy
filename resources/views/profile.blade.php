@@ -1,7 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-
+ <!--Breadcrumb Banner Area Start-->
+ <div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">{{$user->name}}'s Profile</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
 <div class="mt-3"></div>
  <div class="container">
      <div class="card">

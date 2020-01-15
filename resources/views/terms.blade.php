@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="breadcrumb-text">
-                        <h3 class="text-center">Terms And Conditions</h3>
+                        <h1 class="text-center">Terms And Conditions Of FreeOnlineCourses.me</h1>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
 
 <ul>
         <li>By email: support@freeonlinecourses.me</li>
-          <li>By visiting this page on our website: freeonlinecourses.me</li>
+          <li><a href="freeonlinecourses.me/contact">By visiting this page on our website</a></li>
       </ul>
                     </div>
                 </div>

@@ -12,11 +12,44 @@
     <base href="./">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
-    <meta name="author" content="Łukasz Holeczek">
-    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>Admin Panel</title>
+    <title>@isset( $seo ){{$seo["title"]}}@endif</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="@isset( $seo ){{$seo["title"]}}@endif" name="title" />
+    <meta content="@isset( $seo ){{$seo["description"]}}@endif" name="description" />
+    
+
+    <meta content="@isset( $seo ){{$seo["title"]}}@endif" property="og:title" />
+    <meta content="@isset( $seo ){{$seo["description"]}}@endif" property="og:description" />
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="FreeOnlineCourses.me"/>
+    <meta content="FreeOnlineCourses.me" name="author" />
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="canonical" href="@isset( $seo ){{@$seo["canonical"]}}@endif"/>
+
+    <meta name="keywoards" 
+        content="
+        online classes , 
+        free online courses , 
+        online courses , 
+        online degrees, 
+        tutorial , 
+        javascript tutorial,
+        python tutorial,
+        angular tutorial,
+        java tutorial,
+        photoshop tutorial,
+        react tutorial,
+        docker tutorial,
+        node js tutorial,
+        php tutorial,
+        laravel tutorial
+        " 
+        />
     <!-- Icons-->
     <link rel="icon" type="image/ico" href="./img/favicon.ico" sizes="any" />
     <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
@@ -158,7 +191,7 @@
             <div class="list-group-item list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">Today</div>
             <div class="list-group-item list-group-item-accent-warning list-group-item-divider">
               <div class="avatar float-right">
-                <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                <img class="img-avatar" src="img/avatars/7.jpg" alt="freeonlinecourses.me">
               </div>
               <div>Meeting with
                 <strong>Lucas</strong>
@@ -170,7 +203,7 @@
             </div>
             <div class="list-group-item list-group-item-accent-info">
               <div class="avatar float-right">
-                <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                <img class="img-avatar" src="img/avatars/4.jpg" alt="freeonlinecourses.me">
               </div>
               <div>Skype with
                 <strong>Megan</strong>
@@ -191,19 +224,19 @@
                 <i class="icon-home"></i>  creativeLabs HQ</small>
               <div class="avatars-stack mt-2">
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/2.jpg" alt="freeonlinecourses.me">
                 </div>
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/3.jpg" alt="freeonlinecourses.me">
                 </div>
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/4.jpg" alt="freeonlinecourses.me">
                 </div>
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/5.jpg" alt="freeonlinecourses.me">
                 </div>
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/6.jpg" alt="freeonlinecourses.me">
                 </div>
               </div>
             </div>
@@ -225,25 +258,25 @@
                 <i class="icon-home"></i>  creativeLabs HQ</small>
               <div class="avatars-stack mt-2">
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/2.jpg" alt="freeonlinecourses.me">
                 </div>
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/3.jpg" alt="freeonlinecourses.me">
                 </div>
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/4.jpg" alt="freeonlinecourses.me">
                 </div>
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/5.jpg" alt="freeonlinecourses.me">
                 </div>
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/6.jpg" alt="freeonlinecourses.me">
                 </div>
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/7.jpg" alt="freeonlinecourses.me">
                 </div>
                 <div class="avatar avatar-xs">
-                  <img class="img-avatar" src="img/avatars/8.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="img/avatars/8.jpg" alt="freeonlinecourses.me">
                 </div>
               </div>
             </div>
@@ -253,7 +286,7 @@
           <div class="message">
             <div class="py-3 pb-5 mr-3 float-left">
               <div class="avatar">
-                <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                <img class="img-avatar" src="img/avatars/7.jpg" alt="freeonlinecourses.me">
                 <span class="avatar-status badge-success"></span>
               </div>
             </div>
@@ -268,7 +301,7 @@
           <div class="message">
             <div class="py-3 pb-5 mr-3 float-left">
               <div class="avatar">
-                <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                <img class="img-avatar" src="img/avatars/7.jpg" alt="freeonlinecourses.me">
                 <span class="avatar-status badge-success"></span>
               </div>
             </div>
@@ -283,7 +316,7 @@
           <div class="message">
             <div class="py-3 pb-5 mr-3 float-left">
               <div class="avatar">
-                <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                <img class="img-avatar" src="img/avatars/7.jpg" alt="freeonlinecourses.me">
                 <span class="avatar-status badge-success"></span>
               </div>
             </div>
@@ -298,7 +331,7 @@
           <div class="message">
             <div class="py-3 pb-5 mr-3 float-left">
               <div class="avatar">
-                <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                <img class="img-avatar" src="img/avatars/7.jpg" alt="freeonlinecourses.me">
                 <span class="avatar-status badge-success"></span>
               </div>
             </div>
@@ -313,7 +346,7 @@
           <div class="message">
             <div class="py-3 pb-5 mr-3 float-left">
               <div class="avatar">
-                <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                <img class="img-avatar" src="img/avatars/7.jpg" alt="freeonlinecourses.me">
                 <span class="avatar-status badge-success"></span>
               </div>
             </div>

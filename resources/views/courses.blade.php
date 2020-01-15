@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-text">
-                    <h2 class="text-center">COURSES</h2>
+                    <h1 class="text-center">Free Online Courses List</h1>
                 </div>
             </div>
         </div>
@@ -20,17 +20,31 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
-                <form action="/courses/search" method="GET">
-                    {{-- {{csrf_field()}} --}}
+                {{-- <form action="/courses/search" method="GET">
+                    {{csrf_field()}}
                     <div class="form-container search-container">
-                                <input type="text" class="search-input" name="search"/>
+                        <div class="box-select">
+                            <div class="select large">
+                                <select name="category">
+                                    <option>Category</option>
+                                    @foreach($categories as $cat)
+                                    <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                    @endforeach
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" name="search" placeholder="Search..."/>
                         <button type="submit">Search Course</button>
-                    </div>
-                </form>  
+                    </div> 
+                </form>   --}}
             </div>
         </div>
     </div>
 </div>
+{{-- @foreach($categories as $cat)
+    <h4>{{$cat->title}}</h4>
+@endforeach --}}
 <!--End of Search Category-->
 <!--Course Area Start-->
 <div class="course-area section-padding course-page">
@@ -40,23 +54,25 @@
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="single-item">
                     <div class="single-item-image overlay-effect">
-                        <a href="/courses/{{$course->title}}/{{$course->id}}">
+                        <a href="/course/{{str_slug($course->title)}}/{{$course->id}}">
                             <img src="{{asset('storage/'.$course->image)}}" alt="{{$course->title}}" title="{{$course->title}}">
                         </a>
                     </div>
                     <div class="single-item-text">
-                        <h4><a href="/courses/{{$course->title}}/{{$course->id}}">{{$course->title}}</a></h4>
+                        <h4><a href="/course/{{str_slug($course->title)}}/{{$course->id}}">{{$course->title}}</a></h4>
                         <div class="single-item-text-info">
                             <span>Author: <span>{{$course->author}}</span></span>
                             <br/>
-                            <span>Date: <span>{{$course->created_at->format('Y-m-d')}}</span></span>
+                            {{-- <span>Date: <span>{{$course->created_at->format('Y-m-d')}}</span></span> --}}
                             <br/>
-                            <span><i class="fa fa-comments"></i> {{count($course->comments)}}</span>
+                            {{-- <span><i class="fa fa-comments"></i> {{count($course->comments)}}</span> --}}
+                            <br/>
+                            {{-- <span><i class="fa fa-category"></i> {{$course->category->title}}</span> --}}
 
                         </div> 
                     </div>
                     <div class="button-bottom">
-                        <a href="/courses/{{$course->title}}/{{$course->id}}" class="button-default">See More</a>
+                        <a href="/course/{{str_slug($course->title)}}/{{$course->id}}" class="button-default">See More</a>
                     </div>
                 </div>
             </div>

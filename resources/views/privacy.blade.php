@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="breadcrumb-text">
-                        <h2 class="text-center">Privacy Policy for Free Online Courses</h2>
+                        <h1 class="text-center">Privacy Policy for Free Online Courses</h1>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="terms-text-container">
 
-<p>At freeonlinecourses.me, accessible from http://www.freeonlinecourses.me, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by freeonlinecourses.me and how we use it.</p>
+<p>At freeonlinecourses.me, accessible from https://www.freeonlinecourses.me, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by freeonlinecourses.me and how we use it.</p>
 
 <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
 

@@ -229,6 +229,7 @@
 
 /* small mobile :320px. */
 @media (max-width: 767px) {
+    .box-select{width : 100%};
     .container {max-width:320px}
     .search-input{width: 100%;margin-bottom: 10px;}
     .search-container{flex-wrap: wrap;}

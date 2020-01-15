@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-text">
-                    <h3 class="text-center">COURSES DETAILS</h3>
+                    <h1 class="text-center">{{$course->title}}</h1>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                         @foreach($comments as $comment)
                             <div class="single-comment">
                                 <div class="author-image">
-                                    <img src="{{ Gravatar::src($comment->user->email, 200) }}">
+                                    <img alt={{$comment->user->email}} src="{{ Gravatar::src($comment->user->email, 200) }}">
                                     
                                 </div>
                                 <div class="comment-text">
@@ -70,6 +70,7 @@
                                 </div>
                             </div>
                         @endforeach
+
     
                             @if(Auth::user())   
                             <div class="contact-form-area">
@@ -99,10 +100,10 @@
                         @foreach($courses as $course)
                         <div class="single-item">
                             <div class="single-item-image overlay-effect">
-                                <a href="/courses/{{$course->title}}/{{$course->id}}"><img alt="" src="{{asset('storage/'.$course->image)}}"></a>
+                                <a href="/course/{{str_slug($course->title)}}/{{$course->id}}"><img alt="{{$course->title}}" src="{{asset('storage/'.$course->image)}}"></a>
                             </div>
                             <div class="single-item-text">
-                                <h4><a href="/courses/{{$course->title}}/{{$course->id}}">{{$course->title}}</a></h4>
+                                <h4><a href="/course/{{str_slug($course->title)}}/{{$course->id}}">{{$course->title}}</a></h4>
                                 <div class="single-item-text-info">
                                     <span>Author: <span>{{$course->author}}</span></span>
                                     <br/>
@@ -112,7 +113,7 @@
                                 </div>
                             </div>
                             <div class="button-bottom">
-                                <a class="button-default" href="/courses/{{$course->title}}/{{$course->id}}">See More</a>
+                                <a class="button-default" href="/course/{{str_slug($course->title)}}/{{$course->id}}">See More</a>
                             </div>
                         </div>
                         @endforeach

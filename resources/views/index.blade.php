@@ -5,10 +5,10 @@
     <div class="slider-area">
         <div class="preview-2">
             <div id="nivoslider" class="slides">
-                <img src="{{ URL::asset('img/slider/1.png')}}" alt="Free Online Tutorials" title="Free Online Tutorials"/>
+                <img src="{{ URL::asset('img/slider/1.jpg')}}" alt="Free Online Tutorials" title="Free Online Tutorials"/>
             </div>
-            <div class="slider-overlay">
-                <h1><span>F</span>ree <span>O</span>nline <span>C</span>ourses </h1>
+            <div class="slider-overlay text-center">
+                <h1><span>F</span>ree <span>O</span>nline <span>C</span>ourses - <br/> Find And Download Best Courses</h1>
             </div>
         </div>
     </div>
@@ -31,10 +31,10 @@
                 <div class="col-lg-4 col-md-6 col-12 mb-5 mt-5">
                     <div class="single-item">
                         <div class="single-item-image overlay-effect">
-                            <a href="/courses/{{$course->title}}/{{$course->id}}"><img src="{{asset('storage/'.$course->image)}}" alt=""></a>
+                            <a href="/course/{{str_slug($course->title)}}/{{$course->id}}"><img src="{{asset('storage/'.$course->image)}}" alt="{{$course->title}}"></a>
                         </div>
                         <div class="single-item-text">
-                            <h4><a href="/courses/{{$course->title}}/{{$course->id}}">{{$course->title}}</a></h4>
+                            <h4><a href="/course/{{str_slug($course->title)}}/{{$course->id}}">{{$course->title}}</a></h4>
                             <div class="single-item-text-info">
                                 <span>By: <span>{{$course->author}}</span></span>
                                 <br/>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="button-bottom">
-                            <a href="/courses/{{$course->title}}/{{$course->id}}" class="button-default">See More</a>
+                            <a href="/course/{{str_slug($course->title)}}/{{$course->id}}" class="button-default">See More</a>
                         </div>
                     </div>
                 </div>

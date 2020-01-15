@@ -9,7 +9,7 @@ Route::get('/', 'RoutesController@homePage'); // Home Page
 Route::get('/about', 'RoutesController@aboutPage'); // About Page
 Route::get('/contact', 'RoutesController@contactPage'); // Contact Page
 Route::get('/courses', 'RoutesController@coursesPage'); // Courses Page
-Route::get('/courses/{title?}/{id}', 'RoutesController@coursesDetails'); // Course Single Page
+Route::get('/course/{slug}/{id}', 'RoutesController@coursesDetails'); // Course Single Page
 Route::get('/terms-and-conditions', 'RoutesController@termsPage'); // Terms Page
 Route::get('/privacy-policy', 'RoutesController@privacyPage'); // Privacy Page
 Route::any('/courses/search' , 'RoutesController@search'); // Serach Course

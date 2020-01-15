@@ -22,10 +22,16 @@ class HomeController extends Controller
         $messsages = Message::all();
         $comments = Comment::all();
 
+        $this->seo = [
+            "title" => 'FreeOnlineCourses.me - Admin Panel',
+            "description" => "FreeOnlineCourses.me - you can manage your website data from here",
+        ];
+
         $data = [
             'courses_count' => count($courses),
             'messages_count' => count($messsages),
             'comments_count' => count($comments),
+            'seo' => $this->seo
         ];
 
         return view('admin/index')->with($data);
@@ -36,17 +42,25 @@ class HomeController extends Controller
         return redirect('/login');
     }
 
-    // disable register route
-    public function register(){
-        return redirect()->route('login');
-    }
-
     public function create(){
         return view('admin/create')->with('categories' , Category::all());
     }
 
     public function courses(){
-        return view('admin/courses')->with('courses', Course::orderBy('id', 'desc')->paginate(20));
+        $courses = Course::orderBy('id', 'desc')->with('category')->paginate(20);
+
+        $this->seo = [
+            "title" => 'FreeOnlineCourses.me - free online courses',
+            "description" => "FreeOnlineCourses.me -  website dashboard , where you can add your courses easely",
+        ];
+
+
+        $data = [
+            'courses' => $courses,
+            'seo' => $this->seo
+        ];
+
+        return view('admin/courses')->with($data);
     }
 
     // Store course
@@ -99,7 +113,19 @@ class HomeController extends Controller
     }
 
     public function categories(){
-        return view('admin/categories')->with('categories' , Category::all());
+        $categories = Category::all();
+
+        $this->seo = [
+            "title" => 'FreeOnlineCourses.me - categories',
+            "description" => "FreeOnlineCourses.me -  Profile page , where you can check your categories easely",
+        ];
+
+        $data = [
+            'categories' => $categories,
+            'seo' => $this->seo
+        ];
+
+        return view('admin/categories')->with($data);
     }
 
     public function createCategory(){
