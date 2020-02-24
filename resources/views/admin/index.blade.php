@@ -50,7 +50,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="card text-white bg-danger">
               <div class="card-body pb-0">
-                <div class="text-value">9.823</div>
+                <div class="text-value">{{$categories_count}}</div>
                 <div>Categories</div>
               </div>
               <div class="chart-wrapper mt-3 mx-3" style="height:70px;">

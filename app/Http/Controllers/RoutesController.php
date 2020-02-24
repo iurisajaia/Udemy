@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Course;
 use App\User;
 use App\Category;
+use App\Template;
 use Auth;
 use Hash;
 use DB;
@@ -14,6 +15,7 @@ class RoutesController extends Controller{
     // Home Page
     public function homePage(){
         $courses = Course::orderBy('id', 'desc')->with(['comments' ,'category'])->take(6)->get();
+        $templates = Template::orderBy('id', 'desc')->take(6)->get();
         $categories = Category::all();
 
         $this->seo = [
@@ -41,6 +43,7 @@ class RoutesController extends Controller{
         $data = [
             'courses' => $courses,
             'categories' => $categories,
+            'templates' => $templates,
             'seo' => $this->seo
         ];
 
@@ -131,11 +134,11 @@ class RoutesController extends Controller{
         $keyword = $request->search;
         $category = $request->category;
 
-        $courses = DB::table('courses')
-                    ->where('category_id', '==', $category)
-                    ->orWhere('description', 'like', '%' . $keyword . '%')
-                    ->orWhere('title', 'like', '%' . $keyword . '%')
-                    ->paginate(10);
+        $courses = Course::with('comments')
+        ->where('category_id', '=', $category )
+        ->orWhere('title', 'LIKE' , '%' . $keyword . '%')
+        ->paginate(10);
+        
 
         $categories = Category::all();
 
@@ -187,6 +190,27 @@ class RoutesController extends Controller{
             return redirect()->back();
         }
 
+    }
+
+    public function searchTemplate(Request $request){
+        $keyword = $request->search;
+
+        $templates = Template::where('title', 'LIKE' , '%' . $keyword . '%')
+        ->paginate(10);
+        
+
+
+        $this->seo = [
+            "title" => 'Search Result - FreeOnlineCourses.me ',
+            "description" => "FreeOnlineCourses.me -  you can search and filter to find your favourite course",
+        ];
+
+        $data = [
+            'templates' => $templates,
+            'seo' => $this->seo
+        ];
+
+        return view('templates')->with($data);
     }
 
 }

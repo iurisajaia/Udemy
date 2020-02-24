@@ -5,7 +5,6 @@
     <div class="slider-area">
         <div class="preview-2">
             <div id="nivoslider" class="slides">
-                <img src="{{ URL::asset('img/slider/1.jpg')}}" alt="Free Online Tutorials" title="Free Online Tutorials"/>
             </div>
             <div class="slider-overlay text-center">
                 <h1><span>F</span>ree <span>O</span>nline <span>C</span>ourses - <br/> Find And Download Best Courses</h1>

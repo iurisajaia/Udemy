@@ -807,6 +807,7 @@ body {
 .no-animation.background-area:after, .no-animation.overlay-light-fullwidth:after, .no-animation.overlay-light-2-fullwidth:after, .no-animation.overlay-dark-2-fullwidth:after {
     animation: none
 }
+
 .banner-content h1.text-center::after {right: 0; margin: auto}
 .banner-content h1.border-none::after, .background-area.overlay-none::after {display: none}
 .text-content-wrapper.full-width {margin: auto; float: none}
@@ -1456,11 +1457,17 @@ body {
     transition: all 0.3s ease 0s
 }
 .single-teacher-item:hover .social-links {bottom: 25px;}
+.course-text-content{
+    padding : 30px;
+}
 .single-course-details {
     background: #f6f6f6 none repeat scroll 0 0;
     border-bottom: 3px solid #86bc42;
     margin-bottom: 80px;
     /* padding: 33px 0; */
+}
+.single-course-details ul {
+    list-style-type: initial!important;
 }
 .single-course-details .single-item-text {padding-right: 48px;}
 .single-course-details .single-item-text h2 {
@@ -2250,4 +2257,32 @@ span.c-text {display: inline-block;}
 }
 .terms-text-container h3{
     margin: 15px 0;
+}
+
+
+.previewButton {
+	box-shadow: 0px 10px 12px -7px #3e7327;
+	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color:#77b55a;
+	border-radius:4px;
+	border:1px solid #4b8f29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	font-weight:bold;
+	padding:12px 28px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #5b8a3c;
+    display: inline-block!important;
+}
+.previewButton:hover {
+	background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+    background-color:#72b352;
+    color: rgba(255,255,255,.7);
+}
+.previewButton:active {
+	position:relative;
+	top:1px;
 }

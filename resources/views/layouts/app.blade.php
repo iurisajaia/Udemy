@@ -85,7 +85,7 @@
 
         		<!-- Style CSS
         		============================================ -->
-                <link rel="stylesheet" href={{ URL::asset('css/style.css')}}>
+                <link rel="stylesheet" href={{ URL::asset('css/style.min.css')}}>
 
         		<!-- Color CSS
         		============================================ -->
@@ -127,6 +127,7 @@
                                                         <li class="current"><a href="/">Home</a></li>
                                                         <li><a href="/about">About</a></li>
                                                         <li><a href="/courses">Courses</a></li>
+                                                        <li><a href="/templates">Templates</a></li>
                                                         <li><a href="/contact">Contact</a></li>
 
                                                         @if(Auth::user() and Auth::user()->isAdmin())
@@ -163,6 +164,7 @@
                                                     <li><a href="/">HOME</a></li>
                                                     <li><a href="/about">About Us</a></li>
                                                     <li><a href="/courses">Courses</a></li>
+                                                    <li><a href="/templates">Templates</a></li>
                                                     <li><a href="/contact">Contact us</a></li>
                                                     @if(Auth::user() and Auth::user()->isAdmin())
                                                             <li><a href="/home">Dahboard</a></li>
@@ -212,10 +214,10 @@
                                             </a>
                                         </div>
                                         <p>Download your favourite courses for free</p>
-                                        {{-- <div class="social-icons"> --}}
-                                            {{-- <a href="#"><i class="fa fa-facebook"></i></a> --}}
-                                            {{-- <a href="#"><i class="fa fa-google-plus"></i></a> --}}
-                                        {{-- </div> --}}
+                                       {{-- <div class="social-icons"> 
+                                            <a href="#"><i class="fa fa-facebook"></i></a> 
+                                           <a href="#"><i class="fa fa-google-plus"></i></a> 
+                                         </div>  --}}
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6">

@@ -41,7 +41,7 @@
                                 </div>
                             </div> 
                             <div class="col-md-12">
-                                <div class="course-text-content p-3">
+                                <div class="course-text-content">
                                     {!! $course->description !!}
                                 </div> 
                                 <div class="mt-5"></div>

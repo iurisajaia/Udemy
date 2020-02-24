@@ -13,8 +13,17 @@ Route::get('/course/{slug}/{id}', 'RoutesController@coursesDetails'); // Course 
 Route::get('/terms-and-conditions', 'RoutesController@termsPage'); // Terms Page
 Route::get('/privacy-policy', 'RoutesController@privacyPage'); // Privacy Page
 Route::any('/courses/search' , 'RoutesController@search'); // Serach Course
+Route::any('/templates/search' , 'RoutesController@searchTemplate'); // Serach Course
 Route::post('/message', 'MessageController@send'); // Send Message
 
+Route::get('/templates', 'TemplateController@index'); // Templates Page
+Route::get('/template/{slug}/{id}' , 'TemplateController@show'); // Single Template
+
+
+
+
+
+Route::get('/blog' , 'BlogController@index' ); // Blog
 // Authenticated Users
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/comment' , 'CommentController@store'); // Add Comment
@@ -35,5 +44,13 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/home/categories' , 'HomeController@categories'); // Categories View
     Route::get('/home/create/category' , 'HomeController@createCategory'); // Create Category View
     Route::post('/home/store/category', 'HomeController@storeCategory'); // Store Category
+
+    Route::get('/home/templates', 'HomeController@templates'); // Templates
+    Route::get('/home/create/template', 'HomeController@createTemplate'); // Create Template View
+    Route::post('/home/store/template', 'HomeController@storeTemplate'); // Store Template
+    Route::get('/home/template/edit/{id}', 'HomeController@editTemplate'); // Edit Template
+    Route::delete('/home/template/delete/{id}', function(){
+        dd(123);
+    }); // Delete Template
 
 });

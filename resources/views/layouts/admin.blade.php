@@ -96,6 +96,11 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/home/templates">
+                <i class="nav-icon icon-speedometer"></i> Templates
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/home/categories">
                 <i class="nav-icon icon-speedometer"></i> Categories
               </a>
@@ -113,6 +118,11 @@
             <li class="nav-item">
               <a class="nav-link" href="/home/create/category">
                 <i class="nav-icon icon-speedometer"></i> Create Category
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/home/create/template">
+                <i class="nav-icon icon-speedometer"></i> Create Template
               </a>
             </li>
             
