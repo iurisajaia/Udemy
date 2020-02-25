@@ -2,18 +2,269 @@
 @section('content')
 
     <!--Slider Area Start-->
+    
     <div class="slider-area">
         <div class="preview-2">
             <div id="nivoslider" class="slides">
             </div>
             <div class="slider-overlay text-center">
-                <h1><span>F</span>ree <span>O</span>nline <span>C</span>ourses - <br/> Find And Download Best Courses</h1>
+            <img src="{{URL::asset('revslider/assets/back.png')}}" style="max-width :100%"/>
+            <img src={{URL::asset('revslider/assets/5.png')}} class="rocket-image">
+            <div class="over-slider-text">
+                <h1>Free Online Programming Courses</h1>
+                <h2>Start Your Career Today </h2>
+            </div>
             </div>
         </div>
     </div>
     <!--End of Slider Area-->
+    <div class="main-content">
+
+        <section class="iq-works position-relative no-bg overflow-hidden">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <div class="section-title">
+                            <p class="mt-2 text-uppercase iq-fw-3 iq-ls-3">Three Easy Steps</p>
+                            <h2 class="title iq-fw-8">How You Can Get More Knowledge</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row position-relative no-gutters">
+                    <div class="col-lg-4">
+                        <div class="iq-work first-line">
+                            <div class="work-content">
+                                <div class="iq-work-id  text-center">1</div>
+                                <div class="iq-work-detail text-center ">
+                                    <img src="images/work/3.png" class="img-fluid mb-4" alt="image">
+                                    <h3 class="title iq-fw-8">Find</h3>
+                                    <p class="mt-2 mb-0">Find your favourite course easely</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="iq-work">
+                            <div class="work-content">
+                                <div class="iq-work-id  text-center">2</div>
+                                <div class="iq-work-detail text-center ">
+                                    <img src="images/work/4.png" class="img-fluid mb-4" alt="image">
+                                    <h3 class="title iq-fw-8">Download</h3>
+                                    <p class="mt-2 mb-0">Download choosen course with just a click</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="iq-work last-line">
+                            <div class="work-content">
+                                <div class="iq-work-id  text-center">3</div>
+                                <div class="iq-work-detail text-center ">
+                                    <img src="images/work/5.png" class="img-fluid mb-4" alt="image">
+                                    <h3 class="title iq-fw-8">Enjoy</h3>
+                                    <p class="mt-2 mb-0">Now you can start learning something new</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="position-relative overview-block-pb5">
+            <div class="scrollme">
+                <img src="images/shap/03.png" class="img-fluid project-overlay-right animateme" data-when="enter" data-from="0.5" data-to="0" data-translatey="100" alt="image">
+            </div>
+            <div class="our-info">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="about-us text-center list-inline">
+                                <li class="list-inline-item"><a href="#Blog" class="active"><span>Free Courses</span></a></li>
+                                <li class="list-inline-item"><a href="#Portfolio"><span>Free Templates</span></a></li>
+                                <li class="list-inline-item"><a href="#Services"><span>Blog</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-info iq-mtb-60" id="Blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <img src="images/offers/06.png" class="img-fluid offer-info" alt="#">
+                        </div>
+                        <div class="col-lg-5 ">
+                            <img src="images/others/icon.png" class="img-fluid d-inline mr-4" alt="#">
+                            <h4 class="title iq-fw-8 d-inline">Free Courses</h4>
+                            <p class="mt-3">Easely find and download free online video courses</p>
+                            <ul class="listing-mark mt-4">
+                                <li>Programming</li>
+                                <li>Design</li>
+                                <li>Marketing</li>
+                                <li>Language</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-info iq-mtb-60" id="Portfolio">
+                <div class="container">
+                    <div class="row flex-row-reverse">
+                        <div class="col-lg-7">
+                            <img src="images/offers/07.png" class="img-fluid offer-info" alt="#">
+                        </div>
+                        <div class="col-lg-5 ">
+                            <img src="images/others/icon.png" class="img-fluid d-inline mr-4" alt="#">
+                            <h4 class="title iq-fw-8 d-inline">Free Templates</h4>
+                            <p class="mt-3">Download new template for your website for free</p>
+                            <ul class="listing-mark mt-4">
+                                <li>Corporate</li>
+                                <li>Blog</li>
+                                <li>E-commerce</li>
+                                <li>Personal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-info   iq-mtb-60" id="Services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <img src="images/offers/06.png" class="img-fluid offer-info" alt="#">
+                        </div>
+                        <div class="col-lg-5 ">
+                            <img src="images/others/icon.png" class="img-fluid d-inline mr-4" alt="#">
+                            <h4 class="title iq-fw-8 d-inline">Blog</h4>
+                            <p class="mt-3">Get some blogs about new courses and templates.</p>
+                            <ul class="listing-mark mt-4">
+                                <li>Tips</li>
+                                <li>News</li>
+                                <li>Topics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+
+
+        <section class="iq-blogs position-relative overview-block-pb  iq-rmt-40">
+            <div class="scrollme">
+                <img src="images/shap/02.png" class="img-fluid project-overlay-right animateme" data-when="enter" data-from="0.5" data-to="0" data-translatey="100" alt="image">
+            </div>
+            <div class="container">
+                <div class="col-sm-12 text-center">
+                    <div class="section-title">
+                        <h2>Latest Courses</h2>
+                        <a href="/courses" class="mb-0 text-uppercase iq-fw-5 iq-ls-2">See All</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="false" data-items="3" data-items-laptop="3" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1">
+                        @foreach($courses as $course)
+                            <div class="item">
+                                <div class="main-blog">
+                                    <div class="blog-img"> 
+                                        <img src="{{asset('storage/'.$course->image)}}" alt="{{$course->title}}" class="img-fluid" > 
+                                    </div>
+                                    <div class="blog-detail">
+                                        <a class="main-color iq-fw-8" href="/course/{{str_slug($course->title)}}/{{$course->id}}">{{$course->category->title}}</a>
+                                        <a href="blog-details-left-sidebar.html">
+                                            <h5 class="mt-1 iq-fw-8">{{$course->title}}</h5>
+                                        </a>
+                                        <div class="blog-info">
+                                            <ul class="d-inline-block float-right">
+                                                <li class="d-inline-block"><a href="#"><i class="far fa-comment-alt"></i> <span class="iq-fw-8 iq-font-14">{{count($course->comments)}}</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-aria">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <div class="section-title">
+                            <p class="mb-0 text-uppercase iq-fw-5 iq-ls-3">Meet the Team</p>
+                            <h2 class="title iq-fw-8">Our Best Team</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="team-three">
+                            <div class="team-bg">
+                                <img class="img-fluid" src="images/team/team-two/1.png" alt="image">
+                                <div class="social-box">
+                                    <a href="https://www.facebook.com/dexter.munich/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://twitter.com/DexterSja" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.linkedin.com/in/iuri-sajaia-b41245188/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <div class="team-content text-center">
+                                <h5><a href="team-detail.html">Iuri Sajaia</a></h5>
+                                <p>Web Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="team-three">
+                            <div class="team-bg">
+                                <img class="img-fluid" src="images/team/team-two/2.png" alt="image">
+                                <div class="social-box">
+                                    <a href="https://www.facebook.com/dexter.munich/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://twitter.com/DexterSja" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.linkedin.com/in/iuri-sajaia-b41245188/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <div class="team-content text-center">
+                                <h5><a href="team-detail.html">Iuri Sajaia</a></h5>
+                                <p>Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="team-three">
+                            <div class="team-bg">
+                                <img class="img-fluid" src="images/team/team-two/3.png" alt="image">
+                                <div class="social-box">
+                                    <a href="https://www.facebook.com/dexter.munich/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://twitter.com/DexterSja" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.linkedin.com/in/iuri-sajaia-b41245188/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <div class="team-content text-center">
+                                <h5><a href="team-detail.html">Iuri Sajaia</a></h5>
+                                <p>Copywriter</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+    </div>
     <!--Course Area Start-->
-    <div class="course-area section-padding bg-white">
+    {{-- <div class="course-area section-padding bg-white">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -56,7 +307,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--End of Course Area-->
     
     

@@ -72,8 +72,8 @@ class RoutesController extends Controller{
 
     // Courses Page
     public function coursesPage(){
-        $courses = Course::orderBy('id', 'desc')->with(['comments' , 'category'])->paginate(20);
-        $categories = Category::all();
+        $courses = Course::orderBy('id', 'desc')->with(['comments' , 'category'])->paginate(5);
+        $categories = Category::with('courses')->get();
 
         $this->seo = [
             "title" => 'Courses - FreeOnlineCourses.me - Download best online courses for free',
