@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <button class="button">Send</button>
+                                <button class="button p-3">Send</button>
                             </div>
                         </form>
 

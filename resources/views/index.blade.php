@@ -166,9 +166,8 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="false" data-items="3" data-items-laptop="3" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1">
                         @foreach($courses as $course)
+                        <div class="col-lg-4 col-md-4 col-sm-12">
                             <div class="item">
                                 <div class="main-blog">
                                     <div class="blog-img"> 
@@ -187,12 +186,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>   
                         @endforeach
-
-
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

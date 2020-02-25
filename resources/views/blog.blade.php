@@ -3,17 +3,28 @@
 @section('content')
 
  <!--Breadcrumb Banner Area Start-->
- <div class="breadcrumb-banner-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="breadcrumb-text">
-                    <h1 class="text-center">FreeOnlineCourse.me - Blog</h1>
+ <section class="iq-breadcrumb">
+    <div class="iq-breadcrumb-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-7 align-self-center">
+                    <h2 class="iq-fw-8 mb-3">Blog</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-md-5">
+                    <img src={{URL::asset('images/breadcrumb/blog.png')}} class="img-fluid" alt="">
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="iq-breadcrumb-img">
+        <img src={{URL::asset('images/breadcrumb/02.png')}} class="img-fluid breadcrumb-two" alt="image">
+    </div>
+</section>
 <!--End of Breadcrumb Banner Area-->
 
 

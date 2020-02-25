@@ -88,89 +88,6 @@
                 <!--Bg White Start-->
                 <div class="bg-white">
                     <!--Header Area Start-->
-
-                    {{-- <header>
-                        <div class="header-logo-menu sticker">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-3 col-12">
-                                        <div class="logo">
-                                        <a href="/">
-                                            <img src="{{URL::asset('img/logo/logo.png')}}" alt="Free Online Courses" title="Free Online Courses">
-                                        </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9 col-12">
-                                        <div class="mainmenu-area pull-right text-right">
-                                            <div class="mainmenu d-none d-lg-block">
-                                                <nav>
-                                                    <ul id="nav">
-                                                        <li class="current"><a href="/">Home</a></li>
-                                                        <li><a href="/about">About</a></li>
-                                                        <li><a href="/courses">Courses</a></li>
-                                                        <li><a href="/templates">Templates</a></li>
-                                                        <li><a href="/contact">Contact</a></li>
-
-                                                        @if(Auth::user() and Auth::user()->isAdmin())
-                                                            <li><a href="/home">Dahboard</a></li>
-                                                        @endif
-                                                        @if(Auth::user())
-                                                        <li><a href="/profile/{{Auth::user()->id}}">{{Auth::user()->name}}</a></li>
-                                                        <li>
-                                                            <form action="/logout" method="POST">
-                                                                @csrf
-                                                                <button class="btn btn-info">Log Out</button>
-                                                            </form>
-                                                        </li>
-                                                        @else
-                                                        <li>
-                                                            <a href="/login">Login</a>
-                                                        @endif
-                                                    </ul>
-                                                </nav>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Mobile Menu Area start -->
-                        <div class="mobile-menu-area">
-                            <div class="container clearfix">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div class="mobile-menu">
-                                            <nav id="dropdown">
-                                                <ul>
-                                                    <li><a href="/">HOME</a></li>
-                                                    <li><a href="/about">About Us</a></li>
-                                                    <li><a href="/courses">Courses</a></li>
-                                                    <li><a href="/templates">Templates</a></li>
-                                                    <li><a href="/contact">Contact us</a></li>
-                                                    @if(Auth::user() and Auth::user()->isAdmin())
-                                                            <li><a href="/home">Dahboard</a></li>
-                                                        @endif
-                                                        @if(Auth::user())
-                                                        <li><a href="/profile/{{Auth::user()->id}}">{{Auth::user()->name}}</a></li>
-                                                        <li>
-                                                            <form action="/logout" method="POST">
-                                                                @csrf
-                                                                <button class="btn btn-info">Log Out</button>
-                                                            </form>
-                                                        </li>
-                                                        @else
-                                                        <li>
-                                                            <a href="/login">Login</a>
-                                                        @endif
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Mobile Menu Area end -->
-                    </header> --}}
                     <header id="main-header" class="header-one">
 
                         <nav id="menu-1" class="mega-menu" data-color="">
@@ -185,25 +102,21 @@
                                                     <a href="/"><img src="{{URL::asset('images/logo.png')}}" alt="logo" class="img-fluid"></a>
                                                 </li>
                                             </ul>
+
+                                            <ul class="menu-search-bar pull-right active">
+                                                <ul class="menu-links">
                     
-                                            {{-- <ul class="menu-search-bar">
-                                                <li>
-                                                    <form method="post" action="#">
-                                                        <label>
-                                                            <input name="menu_search_bar" placeholder="Search" type="search">
-                                                            <i class="fas fa-search"></i>
-                                                        </label>
-                                                    </form>
-                                                </li>
-                                                <li class="menu-contact iq-fw-5"><a href="tel:0123456789"><i class="fas fa-phone pr-1 "></i> 0 123 456 789</a></li>
-                                            </ul> --}}
+                                                    <li><a href="/login" class="{{Request::is('login') ? 'active' : ''}}">Login</a></li>
+                                                    <li><a href="/register" class="{{Request::is('register') ? 'active' : ''}}">Register</a></li>
+                                                </ul>
+                                            </ul>
                     
                                             <ul class="menu-links">
-                    
-                                                <li><a href="/" class="active">Home</a></li>
-                                                <li><a href="/courses">Courses</a></li>
-                                                <li><a href="/templates">Templates</a></li>
-                                                <li><a href="/blog">Blog</a></li>
+                                                    
+                                                <li><a href="/" class="{{Request::is('/') ? 'active' : ''}}">Home</a></li>
+                                                <li><a href="/courses" class="{{Request::is('courses') ? 'active' : ''}}">Courses</a></li>
+                                                <li><a href="/templates" class="{{Request::is('templates') ? 'active' : ''}}">Templates</a></li>
+                                                {{-- <li><a href="/blog" class="{{Request::is('blog') ? 'active' : ''}}">Blog</a></li> --}}
                                             </ul>
                                         </div>
                                     </div>
@@ -224,44 +137,7 @@
                     {{-- /Content --}}
 
 
-                    <!--Footer Widget Area Start-->
-                    {{-- <div class="footer-widget-area">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="single-footer-widget">
-                                        <div class="footer-logo">
-                                            <a href="/">
-                                                <img src="{{ URL::asset('img/logo/footer.png')}}" alt="Free Online Courses" title="Free Online Courses">
-                                            </a>
-                                        </div>
-                                        <p>Download your favourite courses for free</p>
-                                       
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="single-footer-widget">
-                                        <h3>GET IN TOUCH</h3>
-                                        <a href="tel:555-555-1212"><i class="fa fa-phone"></i>+995-598-29-79-61</a>
-                                        <a href="support@freeonlinecourses.me"><i class="fa fa-envelope"></i>support@freeonlinecourses.me</a>
-                                        <a href="https://www.facebook.com/bestonlinecoursesforfree"><i class="fa fa-facebook"></i>@bestonlinecoursesforfree</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="single-footer-widget">
-                                        <h3>Useful Links</h3>
-                                        <ul class="footer-list">
-                                            <li><a href="/courses">Our Courses</a></li>
-                                            <li><a href="/about">About</a></li>
-                                            <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
-                                            <li><a href="/privacy-policy">Privacy Policy</a></li>
-                                            <li><a href="/contact">Contact</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+                    
 
 
                     <footer class="footer-one footer-bg  position-relative">
@@ -272,7 +148,7 @@
                                 <div class="row ">
                                     <div class="col-lg-4 col-md-6">
                                         <div class="iq-footer-logo">
-                                            <a href="index.html"><img src="images/footer/logo.png" class="img-fluid" alt="image"></a>
+                                            <a href="index.html"><img src="{{URL::asset('images/logo.png')}}" class="img-fluid" alt="image"></a>
                                         </div>
                                         <div class="footer-copyright mb-4 iq-fw-5 mt-3">©Copyrights 2019 </div>
                                         <div>
@@ -362,99 +238,28 @@
                         </div>
                     
                         <div id="back-to-top">
-                            <a class="top" id="top" href="#top"><i class="ion-ios-arrow-thin-up"></i></a>
+                            <button class="top" id="top"><i class="ion-ios-arrow-thin-up"></i></button>
                         </div>
                     
                     </footer>
 
     <!--End of Footer Widget Area-->
 
+            <script>
 
-            {{-- <script type="text/javascript" src=https://code.jquery.com/jquery-3.4.1.min.js></script> --}}
-            {{-- <script type="text/javascript" src=https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js></script> --}}
+                var toTop = document.getElementById('top');
+
+                toTop.addEventListener('click' , () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+
+            </script>
             <script data-cfasync="false" src="https://iqonicthemes.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/jquery-min.js"></script>
 
-            <script src={{ URL::asset('js/popper.min.js')}}></script>
-            
             <script src={{ URL::asset('js/bootstrap.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/modernizr.js')}}></script>
-            
-            <script src={{ URL::asset('js/appear.min.js')}}></script>
             
             <script src={{ URL::asset('js/mega_menu.min.js')}}></script>
             
-            <script src={{ URL::asset('js/timeline.js')}}></script>
-            
-            <script src={{ URL::asset('js/wow.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/jquery.scrollme.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/countdown.js')}}></script>
-            
-            <script src={{ URL::asset('js/waypoints.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/jquery.counterup.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/owl.carousel.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/jquery.magnific-popup.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/isotope.pkgd.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/circle-progress.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/canvasjs.min.js')}}></script>
-            
-            <script src={{ URL::asset('revslider/js/jquery.themepunch.tools.min.js')}}></script>
-            <script src={{ URL::asset('revslider/js/jquery.themepunch.revolution.min.js')}}></script>
-            
-            <script src={{ URL::asset('revslider/js/extensions/revolution.extension.actions.min.js')}}></script>
-            <script src={{ URL::asset('revslider/js/extensions/revolution.extension.carousel.min.js')}}></script>
-            <script src={{ URL::asset('revslider/js/extensions/revolution.extension.kenburn.min.js')}}></script>
-            <script src={{ URL::asset('revslider/js/extensions/revolution.extension.layeranimation.min.js')}}></script>
-            <script src={{ URL::asset('revslider/js/extensions/revolution.extension.migration.min.js')}}></script>
-            <script src={{ URL::asset('revslider/js/extensions/revolution.extension.navigation.min.js')}}></script>
-            <script src={{ URL::asset('revslider/js/extensions/revolution.extension.parallax.min.js')}}></script>
-            <script src={{ URL::asset('revslider/js/extensions/revolution.extension.slideanims.min.js')}}></script>
-            <script src={{ URL::asset('revslider/js/extensions/revolution.extension.video.min.js')}}></script>
-            
-            <script src={{ URL::asset('revslider/js/revolution.tools.min.js')}}></script>
-            <script src={{ URL::asset('revslider/js/rs6.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/retina.min.js')}}></script>
-            
             <script src={{ URL::asset('js/custom.js')}}></script>
-            <script>
-                           
-                           var   revapi7,
-                              tpj;
-                           jQuery(function() {
-                              tpj = jQuery;
-                              if(tpj("#rev_slider_7_1").revolution == undefined){
-                                 revslider_showDoubleJqueryError("#rev_slider_7_1");
-                              }else{
-                                 revapi7 = tpj("#rev_slider_7_1").show().revolution({
-                                    jsFileLocation:"js/",
-                                    sliderLayout:"fullwidth",
-                                    visibilityLevels:"1240,1024,778,480",
-                                    gridwidth:1240,
-                                    gridheight:900,
-                                    minHeight:"",
-                                    spinner:"spinner0",
-                                    editorheight:"900,768,960,720",
-                                    responsiveLevels:"1240,1024,778,480",
-                                    disableProgressBar:"on",
-                                    navigation: {
-                                       onHoverStop:false
-                                    },
-                                    fallbacks: {
-                                       allowHTML5AutoPlayOnAndroid:true
-                                    },
-                                 });
-                              }
-                              
-                           });
-                        </script>
         </body>
 </html>

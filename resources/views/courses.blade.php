@@ -11,7 +11,7 @@
                     <h2 class="iq-fw-8 mb-3">Courses</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/courses">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -25,19 +25,6 @@
         <img src={{URL::asset('images/breadcrumb/02.png')}} class="img-fluid breadcrumb-two" alt="image">
     </div>
 </section>
- {{-- <div class="breadcrumb-banner-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="breadcrumb-text">
-                    <h1 class="text-center">Free Online Courses List</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-<!--End of Breadcrumb Banner Area-->
-<!--Search Category Start-->
 <div class="main-content">
 
     <section class="iq-blogs">
@@ -122,78 +109,6 @@
     </section>
 
 </div>
-{{-- <div class="search-category">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
-                <form action="/courses/search" method="GET">
-                    {{csrf_field()}}
-                    <div class="form-container search-container">
-                        <div class="box-select">
-                            <div class="select large">
-                                <select name="category">
-                                    <option>Category</option>
-                                    @foreach($categories as $cat)
-                                    <option value="{{$cat->id}}">{{$cat->title}}</option>
-                                    @endforeach
-                                    
-                                </select>
-                            </div>
-                        </div>
-                        <input type="text" class="search-input" name="search" placeholder="Search..."/>
-                        <button type="submit">Search Course</button>
-                    </div> 
-                </form>  
-            </div>
-        </div>
-    </div>
-</div> --}}
-{{-- @foreach($categories as $cat)
-    <h4>{{$cat->title}}</h4>
-@endforeach --}}
-<!--End of Search Category-->
-<!--Course Area Start-->
-{{-- <div class="course-area section-padding course-page">
-    <div class="container">
-        <div class="row">
-            @if(count($courses) > 0)
-                @foreach($courses as $course)
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-item">
-                        <div class="single-item-image overlay-effect">
-                            <a href="/course/{{str_slug($course->title)}}/{{$course->id}}">
-                                <img src="{{asset('storage/'.$course->image)}}" alt="{{$course->title}}" title="{{$course->title}}">
-                            </a>
-                        </div>
-                        <div class="single-item-text">
-                            <h4><a href="/course/{{str_slug($course->title)}}/{{$course->id}}">{{$course->title}}</a></h4>
-                            <div class="single-item-text-info">
-                                <span>Author: <span>{{$course->author}}</span></span>
-                                <br/>
-                                <span>Date: <span>{{$course->created_at->format('Y-m-d')}}</span></span>
-                                <br/>
-                                <span><i class="fa fa-comments"></i> {{count($course->comments)}}</span>
-                                <br/>
-                                <span><i class="fa fa-cloud"></i> {{$course->category->title}}</span>
-
-                            </div> 
-                        </div>
-                        <div class="button-bottom">
-                            <a href="/course/{{str_slug($course->title)}}/{{$course->id}}" class="button-default">See More</a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            @else 
-                <h3>No Courses</h3>
-            @endif        
-        </div>
-            {{$courses->links()}}
-        
-
-    </div>
-</div> --}}
-<!--End of Course Area-->
 
 
 
