@@ -11,142 +11,82 @@ use App\Message;
 use Auth;
 use Hash;
 use DB;
+use App\Repository\Course\CourseRepositoryInterface;
+use App\Repository\Seo\SeoRepositoryInterface;
+use App\Repository\Category\CategoryRepositoryInterface;
 class RoutesController extends Controller{
+
+    private $courseRepository;
+    private $seoRepository;
+    private $categoryRepository;
+
+    public function __construct(
+        CourseRepositoryInterface $courseRepository,
+        SeoRepositoryInterface $seoRepository,
+        CategoryRepositoryInterface $categoryRepository
+    ){
+        $this->courseRepository = $courseRepository;
+        $this->seoRepository = $seoRepository;
+        $this->categoryRepository = $categoryRepository;
+    }
 
     // Home Page
     public function homePage(){
-        $courses = Course::orderBy('id', 'desc')->with(['comments' ,'category'])->take(6)->get();
-        $templates = Template::orderBy('id', 'desc')->take(6)->get();
-        $categories = Category::all();
 
-        $this->seo = [
-            "title" => 'FreeOnlineCourses.me - Download best online courses for free',
-            "description" => '
-            FreeOnlineCourses.me - Download best online courses for free |
-            online classes  |
-        free online courses  |
-        online courses  |
-        online degrees |
-        tutorial  |
-        javascript tutorial |
-        python tutorial |
-        angular tutorial |
-        java tutorial |
-        photoshop tutorial |
-        react tutorial |
-        docker tutorial |
-        node js tutorial |
-        php tutorial |
-        laravel tutorial
-            ',
-        ];
+        return view('index')->with([
+            'courses' => $this->courseRepository->all(6),
+            'seo' => $this->seoRepository->home()
+        ]);
 
-        $data = [
-            'courses' => $courses,
-            'categories' => $categories,
-            'templates' => $templates,
-            'seo' => $this->seo
-        ];
-
-        return view('index')->with($data);
     }
 
     // About Page
     public function aboutPage(){
-
-        $this->seo = [
-            "title" => 'About Us - FreeOnlineCourses.me - Download best online courses for free',
-            "description" => 'About FreeOnlineCourses.me - is a website, where you can find and download desired best online courses for free',
-        ];
-
-        return view('about')->with('seo' , $this->seo);
+        return view('about')->with('seo' , $this->seoRepository->about());
     }
 
     // Contact Page
     public function contactPage(){
-        $this->seo = [
-            "title" => 'Contact Us - FreeOnlineCourses.me - Download best online courses for free',
-            "description" => "FreeOnlineCourses.me - Contact Us anytime to ask about course ,  we’ll try to add the course shortly",
-        ];
-        return view('contact')->with('seo', $this->seo);
+        return view('contact')->with('seo', $this->seoRepository->contact());
     }
 
     // Courses Page
     public function coursesPage(){
-
-        $courses = Course::orderBy('id', 'desc')->with(['comments' , 'category'])->paginate(10);
-        $categories = Category::with('courses')->get();
-
-        $this->seo = [
-            "title" => 'Courses - FreeOnlineCourses.me - Download best online courses for free',
-            "description" => "FreeOnlineCourses.me - here you can find and easely download free online courses with hight quality",
-        ];
-
-        $data = [
-            'courses' => $courses,
-            'categories' => $categories,
-            'seo' => $this->seo
-        ];
-
-        return view('courses')->with($data);
+        return view('courses')->with([
+            'courses' => $this->courseRepository->all(null),
+            'categories' => $this->categoryRepository->all(),
+            'seo' => $this->seoRepository->courses()
+        ]);
     }
 
     public function byCategory($id){
-        $courses = Course::where('category_id' , $id)->orderBy('id', 'desc')->with(['comments' , 'category'])->paginate(5);
-        $categories = Category::with('courses')->get();
-
-        $this->seo = [
-            "title" => 'Courses - FreeOnlineCourses.me - Download best online courses for free',
-            "description" => "FreeOnlineCourses.me - here you can find and easely download free online courses with hight quality",
-        ];
-
-        $data = [
-            'courses' => $courses,
-            'categories' => $categories,
-            'seo' => $this->seo
-        ];
-
-        return view('courses')->with($data);
+        return view('courses')->with([
+            'courses' => $this->courseRepository->coursesByCategory($id),
+            'categories' => $this->categoryRepository->all(),
+            'seo' => $this->seoRepository->courses()
+        ]);
     }
 
     // Courses Details Page
     public function coursesDetails($title , $id){
-        $course = Course::where('id' , $id)->with('comments.user')->firstOrFail();
+        $course = $this->courseRepository->singleCourse($id);
 
-        $courses = Course::orderBy('id', 'desc')->with('comments')->take(10)->get(); // for sidebar
-
-        $this->seo = [
-            "title" => 'FreeOnlineCourses.me - ' . $course->title .' ',
-            "description" => 'About Course - ' . $course->title .' ',
-        ];
-
-        $data = [
+        return view('details')->with([
             'course' => $course,
-            'courses' => $courses,
+            'courses' => $this->courseRepository->all(10), // for sidebar
             'comments' => $course->comments,
-            'seo' => $this->seo
-        ];
-
-        return view('details')->with($data);
+            'seo' => $this->seoRepository->course($course)
+        ]);
     }
 
     // Terms And Conditions Page
     public function termsPage(){
-        $this->seo = [
-            "title" => 'Terms And Conditions - FreeOnlineCourses.me ',
-            "description" => "FreeOnlineCourses.me -  This is important and affects your legal rights, so please read them and our Privacy Policy carefully.",
-        ];
-        return view('terms')->with('seo' , $this->seo);
+        return view('terms')->with('seo' , $this->seoRepository->about());
     }
 
     // Privacy Policy Page
     public function privacyPage(){
-
-        $this->seo = [
-            "title" => 'Privacy Policy - FreeOnlineCourses.me ',
-            "description" => "FreeOnlineCourses.me -  This Privacy Policy document contains types of information that is collected and recorded by freeonlinecourses.me and how we use it.",
-        ];
-        return view('privacy')->with('seo' , $this->seo);
+        return view('privacy')->with('seo' , $this->seoRepository->about());
     }
 
     // Search Courses

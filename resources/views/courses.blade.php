@@ -40,13 +40,12 @@
                                     <button type="submit" class="search-button"> <i class="fa fa-search"></i></button>
                                  </form>
 
-                                </form>
                         </div>
                         <div class="iq-sidebar-widget iq-mt-80">
                             <h5 class="iq-fw-8 mb-4">Categories</h5>
                             <ul class="d-block">
                                 @foreach($categories as $cat)
-                            <li class="d-block mb-3"><a href="/courses/category/{{$cat->id}}" class="iq-fw-5">{{$cat->title}}<span>{{count($cat->courses)}}</span></a></li>
+                            <li class="d-block mb-3"><a href="/courses/category/{{$cat->id}}" class="iq-fw-5">{{$cat->title}}<span>{{$cat->courses->count()}}</span></a></li>
                                 @endforeach
                             </ul>
                         </div>

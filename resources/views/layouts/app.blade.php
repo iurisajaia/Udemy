@@ -115,130 +115,24 @@
     </head>
     <body>
 
-    <div class='adblock-wrapper center hidden' id='ads-blocked'>
-        <div class='adblock-content-wrapper'>
-            <div class='adblock-content'>
-                <div class='center'>
-                    <div class='image-container'>
-                        <div class='image'>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <h3>
-                                Ads
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <div class='adblock-text'>
-                    <h3>
-                        Please disable your ad blocker!
-                    </h3>
-                    <p>
-                        We know ads are annoying but please bear with us here & disable your ad blocker!
-                    </p>
-                </div>
-                <div class='adblock-button'>
-                    <button class='btn' id="reloadButton">
-                        I've disabled my ad blocker!
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-            <!--Main Wrapper Start-->
+            @include('components.adblocker')
+
+
             <div class="as-mainwrapper">
-                <!--Bg White Start-->
                 <div class="bg-white">
-                    <!--Header Area Start-->
-                    <header id="main-header" class="header-one">
 
-                        <nav id="menu-1" class="mega-menu" data-color="">
+                    @include('partials.header')
 
-                            <div class="menu-list-items">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-
-                                            <ul class="menu-logo">
-                                                <li>
-                                                    <a href="/"><img src="{{URL::asset('images/logo.png')}}" alt="logo" class="img-fluid"></a>
-                                                </li>
-                                            </ul>
-
-                                            <ul class="menu-search-bar pull-right active">
-                                                <ul class="menu-links">
-                                                    @if(Auth::user())
-                                                        <li><a href="/profile/{{Auth::user()->id}}">{{Auth::user()->name}}</a></li>
-                                                        <li><a href="/logout">Log Out</a></li>
-                                                    @else
-                                                        <li><a href="/login" class="{{Request::is('login') ? 'active' : ''}}">Login</a></li>
-                                                        <li><a href="/register" class="{{Request::is('register') ? 'active' : ''}}">Register</a></li>
-                                                    @endif
-                                                </ul>
-                                            </ul>
-
-                                            <ul class="menu-links">
-
-                                                <li><a href="/" class="{{Request::is('/') ? 'active' : ''}}">Home</a></li>
-                                                <li><a href="/courses" class="{{Request::is('courses') ? 'active' : ''}}">Courses</a></li>
-                                                <li><a href="/templates" class="{{Request::is('templates') ? 'active' : ''}}">Templates</a></li>
-{{--                                                <li><a href="/blog" class="{{Request::is('blog') ? 'active' : ''}}">Blog</a></li>--}}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
-
-                    </header>
-                     <!--End of Header Area-->
-
-                    {{-- Content --}}
 
                     @yield('content')
 
-                    {{-- /Content --}}
-                    <footer class="footer-one footer-bg  position-relative">
-                        <img src={{URL::asset('images/footer/4.png')}} class="img-fluid fshap-after" alt="image">
 
-                        <div class="contactinfo">
-                            <div class="container p-0">
-                                <div class="row ">
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="iq-footer-logo">
-                                            <a href="index.html"><img src="{{URL::asset('images/logo.png')}}" class="img-fluid" alt="image"></a>
-                                        </div>
-                                        <div class="footer-copyright mb-4 iq-fw-5 mt-3">©Copyrights 2019 </div>
-                                        <div>
-                                            <div class="social-media d-inline-block float-left ml-4">
-                                                <ul class="social">
-                                                    <li><a href="https://www.facebook.com/bestonlinecoursesforfree" target="_blank"><i class="fab fa-facebook-f iq-fw-6"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 footer-link">
-                                        <h5 class="iq-fw-7 riq-mt-40">Links</h5>
-                                        <ul class="list-inline rmb-40">
-                                            <li class="list-item"><a href="/">Home</a></li>
-                                            <li class="list-item"><a href="/courses">Courses</a></li>
-                                            <li class="list-item"><a href="/templates">Templates</a></li>
+                    @include('partials.footer')
 
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 footer-link">
-                                        <h5 class="iq-fw-7 ">Information</h5>
-                                        <ul class="list-inline">
-                                            <li class="list-item"><a href="/about">About us</a></li>
-                                            <li class="list-item"><a href="/terms-and-conditions">Terms & Conditions</a></li>
-                                            <li class="list-item"><a href="/privacy-policy">Privacy Policy</a></li>
-                                            <li class="list-item"><a href="/contact">Contact Us</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
+                </div>
+            </div>
 
-                    <script src={{URL::asset('js/custom.js')}} ></script>
-        </body>
+    <script src={{URL::asset('js/custom.js')}} ></script>
+
+    </body>
 </html>
