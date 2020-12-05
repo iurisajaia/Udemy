@@ -8,8 +8,7 @@
             <div id="nivoslider" class="slides">
             </div>
             <div class="slider-overlay text-center">
-            <img src="{{URL::asset('revslider/assets/back.png')}}" style="max-width :100%"/>
-            <img src={{URL::asset('revslider/assets/5.png')}} class="rocket-image">
+            <img src={{URL::asset('revslider/assets/5.png')}} title="free programming online courses" class="rocket-image">
             <div class="over-slider-text">
                 <h1>Free Online Programming Courses</h1>
                 <h2>Start Your Career Today </h2>
@@ -50,7 +49,7 @@
                                 <div class="iq-work-detail text-center ">
                                     <img src="images/work/4.png" class="img-fluid mb-4" alt="image">
                                     <h3 class="title iq-fw-8">Download</h3>
-                                    <p class="mt-2 mb-0">Download choosen course with just a click</p>
+                                    <p class="mt-2 mb-0">Download chosen course with just a click</p>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +174,7 @@
                                     </div>
                                     <div class="blog-detail">
                                         <a class="main-color iq-fw-8" href="/course/{{str_slug($course->title)}}/{{$course->id}}">{{$course->category->title}}</a>
-                                        <a href="blog-details-left-sidebar.html">
+                                        <a href="/course/{{str_slug($course->title)}}/{{$course->id}}">
                                             <h5 class="mt-1 iq-fw-8">{{$course->title}}</h5>
                                         </a>
                                         <div class="blog-info">

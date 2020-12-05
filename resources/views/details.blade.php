@@ -37,15 +37,16 @@
                         
                         <div class="iq-mt-80">
                             <h5 class="iq-widget-title iq-fw-8 mb-4">Recent Courses</h5>
-                            @foreach($courses as $course)
+                            @foreach($courses as $cc)
                         
                             <div class="media mb-3">
-                                <img class="mr-3" alt="{{$course->title}}" src="{{asset('storage/'.$course->image)}}">
+                                <img class="mr-3" alt="{{$cc->title}}" src="{{asset('storage/'.$cc->image)}}">
                                 <div class="media-body">
-                                    <a href="/course/{{str_slug($course->title)}}/{{$course->id}}">
-                                        <h6 class="mt-0 iq-fw-8">{{$course->title}}</h6>
+                                    <a href="/course/{{str_slug($cc->title)}}/{{$cc->id}}">
+                                        <h6 class="mt-0 iq-fw-8">{{$cc->title}}</h6>
                                     </a>
-                                    {{$course->created_at->format('d M')}}
+                                    {{$cc->created_at->format('d M')}}
+                                   
                                 </div>
                             </div>
                         @endforeach

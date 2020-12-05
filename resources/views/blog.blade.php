@@ -31,25 +31,21 @@
 <div class="latest-area section-padding latest-page">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-12 col-12">
+            @foreach($blog as $bl)
+            <div class="col-lg-6 col-md-12 col-12" style="margin-top:30px">
                 <div class="single-latest-item">
                     <div class="single-latest-image">
-                        <a href="#"><img src="img/latest/1.jpg" alt=""></a>
+                        <a href="/blog/{{$bl->id}}"><img style="width:100%" src={{asset('storage/'.$bl->image)}} alt="{{$bl->title}}" title="{{$bl->title}}"></a>
                     </div>
                     <div class="single-latest-text">
-                        <h3><a href="#">Learn English in ease</a></h3>
-                        <div class="single-item-comment-view">
-                           <span><i class="zmdi zmdi-calendar-check"></i>25 jun 2050</span>
-                           <span><i class="zmdi zmdi-eye"></i>59</span>
-                           <span><i class="zmdi zmdi-comments"></i>19</span>
-                       </div>
-                       <p>There are many variaons of passages of Lorem Ipsuable, amrn in some by injected humour, </p>
-                       <a href="#" class="button-default">LEARN Now</a>
+                        <h3><a href="/blog/{{$bl->id}}">{{$bl->title}}</a></h3>
+                       <a href="/blog/{{$bl->id}}" class="button-default">See More</a>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
-        
+
     </div>
 </div>
 

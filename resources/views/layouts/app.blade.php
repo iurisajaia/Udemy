@@ -41,37 +41,34 @@
         "
         />
         <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156256604-1"></script>
-<script defer>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156256604-1"></script>
+        <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'UA-156256604-1');
-</script>
-
+        gtag('config', 'UA-156256604-1');
+        </script>
+        <script data-ad-client="ca-pub-8724175326124727" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
         <meta charset="utf-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <title>Free Online Programming Courses - freeonlinecourses.me</title>
+
         <meta name="description" content="Download best online courses for free" />
+
         <meta name="robots" content="index, follow" />
 
         <meta name="og:title" property="og:title" content="freeonlinecourses.me - Free Online Courses"/>
+
         <meta name="title" content="Free Online Courses - freeonlinecourses.me" />
 
+        <link rel="shortcut icon" type="image/png" href="{{URL::asset('images/logo.png')}}" />
 
-
-
-
-
-        <link rel="shortcut icon" type="image/png" href="{{URL::asset('img/logo/logo.png')}}" />
-        
         <link rel="stylesheet" href={{ URL::asset('css/bootstrap.min.css')}}>
-
-        <link rel="stylesheet" href={{ URL::asset('revslider/css/settings.css')}}>
 
         <link rel="stylesheet" href={{ URL::asset('css/typography.css')}}>
 
@@ -79,10 +76,74 @@
 
         <link rel="stylesheet" href={{ URL::asset('css/responsive.css')}}>
 
+        <script>
+
+            function init() {
+                document.getElementById('reloadButton').addEventListener('click' , () => {
+                    location.reload();
+                })
+                let adsBlockedElement = document.getElementById('ads-blocked');
+                adsBlocked(function (o) {
+                    o
+                        ? adsBlockedElement.classList.remove('hidden')
+                        : console.log("Ad-blocker Enabled : " + o);
+                });
+            }
+            function adsBlocked(o) {
+                var e = new Request(
+                    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+                    { method: "HEAD", mode: "no-cors" }
+                );
+                fetch(e)
+                    .then(function (o) {
+                        return o;
+                    })
+                    .then(function (e) {
+                        console.log(e), o(!1);
+                    })
+                    .catch(function (e) {
+                        console.log(e), o(!0);
+                    });
+            }
+            // setTimeout(() => {
+            //     init();
+            // }, 3000);
+
+
+        </script>
 
     </head>
     <body>
 
+    <div class='adblock-wrapper center hidden' id='ads-blocked'>
+        <div class='adblock-content-wrapper'>
+            <div class='adblock-content'>
+                <div class='center'>
+                    <div class='image-container'>
+                        <div class='image'>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <h3>
+                                Ads
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class='adblock-text'>
+                    <h3>
+                        Please disable your ad blocker!
+                    </h3>
+                    <p>
+                        We know ads are annoying but please bear with us here & disable your ad blocker!
+                    </p>
+                </div>
+                <div class='adblock-button'>
+                    <button class='btn' id="reloadButton">
+                        I've disabled my ad blocker!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
             <!--Main Wrapper Start-->
             <div class="as-mainwrapper">
                 <!--Bg White Start-->
@@ -91,12 +152,12 @@
                     <header id="main-header" class="header-one">
 
                         <nav id="menu-1" class="mega-menu" data-color="">
-                    
+
                             <div class="menu-list-items">
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-sm-12">
-                    
+
                                             <ul class="menu-logo">
                                                 <li>
                                                     <a href="/"><img src="{{URL::asset('images/logo.png')}}" alt="logo" class="img-fluid"></a>
@@ -105,44 +166,40 @@
 
                                             <ul class="menu-search-bar pull-right active">
                                                 <ul class="menu-links">
-                    
-                                                    <li><a href="/login" class="{{Request::is('login') ? 'active' : ''}}">Login</a></li>
-                                                    <li><a href="/register" class="{{Request::is('register') ? 'active' : ''}}">Register</a></li>
+                                                    @if(Auth::user())
+                                                        <li><a href="/profile/{{Auth::user()->id}}">{{Auth::user()->name}}</a></li>
+                                                        <li><a href="/logout">Log Out</a></li>
+                                                    @else
+                                                        <li><a href="/login" class="{{Request::is('login') ? 'active' : ''}}">Login</a></li>
+                                                        <li><a href="/register" class="{{Request::is('register') ? 'active' : ''}}">Register</a></li>
+                                                    @endif
                                                 </ul>
                                             </ul>
-                    
+
                                             <ul class="menu-links">
-                                                    
+
                                                 <li><a href="/" class="{{Request::is('/') ? 'active' : ''}}">Home</a></li>
                                                 <li><a href="/courses" class="{{Request::is('courses') ? 'active' : ''}}">Courses</a></li>
                                                 <li><a href="/templates" class="{{Request::is('templates') ? 'active' : ''}}">Templates</a></li>
-                                                {{-- <li><a href="/blog" class="{{Request::is('blog') ? 'active' : ''}}">Blog</a></li> --}}
+{{--                                                <li><a href="/blog" class="{{Request::is('blog') ? 'active' : ''}}">Blog</a></li>--}}
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </nav>
-                    
+
                     </header>
                      <!--End of Header Area-->
-
-
-
 
                     {{-- Content --}}
 
                     @yield('content')
 
                     {{-- /Content --}}
-
-
-                    
-
-
                     <footer class="footer-one footer-bg  position-relative">
                         <img src={{URL::asset('images/footer/4.png')}} class="img-fluid fshap-after" alt="image">
-                        
+
                         <div class="contactinfo">
                             <div class="container p-0">
                                 <div class="row ">
@@ -165,7 +222,7 @@
                                             <li class="list-item"><a href="/">Home</a></li>
                                             <li class="list-item"><a href="/courses">Courses</a></li>
                                             <li class="list-item"><a href="/templates">Templates</a></li>
-                                            
+
                                         </ul>
                                     </div>
                                     <div class="col-lg-4 col-md-6 footer-link">
@@ -177,89 +234,11 @@
                                             <li class="list-item"><a href="/contact">Contact Us</a></li>
                                         </ul>
                                     </div>
-                                    {{-- <div class="col-lg-4 col-md-6">
-                                        <div class="testimonials">
-                                            <div id="iqtestimonials" class="owl-carousel riq-mt-40" data-autoplay="true" data-loop="true" data-nav="false" data-dots="false" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="15">
-                                                <div class="item">
-                                                    <div class="desc">
-                                                        <p class="mb-0">Progravida <span class="text-black iq-fw-7">#nibh vel velit auctor</span> alinean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,Lorem Ipsum. <a href="javascript:void(0)#" class="text-black iq-fw-7">https://iqonicthemes.com</a></p>
-                                                    </div>
-                                                    <div class="author">
-                                                        <div class="float-left d-flex mr-3">
-                                                            <i class="fab fa-twitter text-white"></i>
-                                                        </div>
-                                                        <div class=" float-left ">
-                                                            <div class="overview">
-                                                                <a>
-                                                                    <h6 class="name text-black mb-0">iqonicthemes</h6>
-                                                                </a>
-                                                                <div class="details">2 Months Ago</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="desc">
-                                                        <p class="mb-0">Progravida <span class="text-black iq-fw-7">#nibh vel velit auctor</span> alinean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,Lorem Ipsum. <a href="javascript:void(0)" class="text-black iq-fw-7">https://iqonicthemes.com</a></p>
-                                                    </div>
-                                                    <div class="author">
-                                                        <div class="float-left d-flex mr-3">
-                                                            <i class="fab fa-twitter text-white"></i>
-                                                        </div>
-                                                        <div class=" float-left ">
-                                                            <div class="overview">
-                                                                <h6 class="name text-black mb-0">iqonicthemes</h6>
-                                                                <div class="details">2 Months Ago</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="desc">
-                                                        <p class="mb-0">Progravida <span class="text-black iq-fw-7">#nibh vel velit auctor</span> alinean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,Lorem Ipsum. <a href="javascript:void(0)" class="text-black iq-fw-7">https://iqonicthemes.com</a></p>
-                                                    </div>
-                                                    <div class="author">
-                                                        <div class="float-left d-flex mr-3">
-                                                            <i class="fab fa-twitter text-white"></i>
-                                                        </div>
-                                                        <div class=" float-left ">
-                                                            <div class="overview">
-                                                                <h6 class="name text-black mb-0">iqonicthemes</h6>
-                                                                <div class="details">2 Months Ago</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> --}}
                                 </div>
                             </div>
                         </div>
-                    
-                        <div id="back-to-top">
-                            <button class="top" id="top"><i class="ion-ios-arrow-thin-up"></i></button>
-                        </div>
-                    
                     </footer>
 
-    <!--End of Footer Widget Area-->
-
-            <script>
-
-                var toTop = document.getElementById('top');
-
-                toTop.addEventListener('click' , () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-
-            </script>
-            <script data-cfasync="false" src="https://iqonicthemes.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/jquery-min.js"></script>
-
-            <script src={{ URL::asset('js/bootstrap.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/mega_menu.min.js')}}></script>
-            
-            <script src={{ URL::asset('js/custom.js')}}></script>
+                    <script src={{URL::asset('js/custom.js')}} ></script>
         </body>
 </html>

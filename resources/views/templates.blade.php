@@ -35,10 +35,10 @@
                 <div class="col-lg-12">
                     <form action="/templates/search" method="GET" class="iq-widget-search position-relative">
                         {{csrf_field()}}
-                            
-                        <a href="javascript:void(0)" type="submit"> <i class="fa fa-search"></i></a>
-                        <input type="search" placeholder="search" class="form-control placeholder search-btn">
-                     </form>  
+
+                        <input type="search" name="search" placeholder="search" class="form-control placeholder search-btn">
+                        <button type="submit" class="search-button"> <i class="fa fa-search"></i></button>
+                     </form>
 
                     </form>
                 </div>
@@ -64,9 +64,9 @@
                                     </div>
                                 </div>
                             @endforeach
-                        @else 
+                        @else
                             <h3>No Templates</h3>
-                        @endif  
+                        @endif
 
                     </div>
                     <div class="row mt-5">

@@ -35,10 +35,10 @@
                         <div class="iq-sidebar-widget">
                                 <form action="/courses/search" method="GET" class="iq-widget-search position-relative">
                                     {{csrf_field()}}
-                                        
-                                    <a href="javascript:void(0)" type="submit"> <i class="fa fa-search"></i></a>
-                                    <input type="search" placeholder="search" class="form-control placeholder search-btn">
-                                 </form>  
+
+                                    <input type="search" name="search" placeholder="search" class="form-control placeholder search-btn">
+                                    <button type="submit" class="search-button"> <i class="fa fa-search"></i></button>
+                                 </form>
 
                                 </form>
                         </div>
@@ -46,8 +46,8 @@
                             <h5 class="iq-fw-8 mb-4">Categories</h5>
                             <ul class="d-block">
                                 @foreach($categories as $cat)
-                            <li class="d-block mb-3"><a href="javascript:void(0)" class="iq-fw-5">{{$cat->title}}<span>{{count($cat->courses)}}</span></a></li>
-                                @endforeach 
+                            <li class="d-block mb-3"><a href="/courses/category/{{$cat->id}}" class="iq-fw-5">{{$cat->title}}<span>{{count($cat->courses)}}</span></a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -66,7 +66,6 @@
                                             <a href="/course/{{str_slug($course->title)}}/{{$course->id}}"><h5 class="mt-1 iq-fw-8">{{$course->title}}</h5></a>
                                             <div class="blog-info">
                                                 <a href="/course/{{str_slug($course->title)}}/{{$course->id}}">
-                                                    <img src="images/blog/clients/01.jpg" class="img-fluid rounded-circle mr-3 user-img" alt="image">
                                                     <span class="iq-fw-8 font-c iq-font-18">{{$course->created_at->format('Y-m-d')}}</span>
                                                 </a>
                                                 <ul class="d-inline-block float-right">
@@ -76,33 +75,40 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach  
-                            @endif  
+                            @endforeach
+                            @else
+                                <h3>No Courses</h3>
+                            @endif
                     </div>
-                    <div class="row mt-5">
-                        <div class="col-sm-12">
-                            <nav>
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item">
-                                        <a class="page-link" href={{($courses->currentPage() - 1) > 0 ? $courses->previousPageUrl() : '/courses' }} >
-                                            <i class="fas fa-arrow-left"></i>
-                                        </a>
-                                    </li>
-                                    <li class="page-item active" aria-current="page">
-                                        <span class="page-link">{{$courses->currentPage()}}<span class="sr-only">(current)</span></span>
-                                    </li>
-                                    @if($courses->nextPageUrl())
-                                    <li class="page-item"><a class="page-link" href={{$courses->nextPageUrl()}}>{{$courses->currentPage() + 1}}</a></li>
-                                    @endif
-                                    <li class="page-item">
-                                        <a class="page-link" href={{$courses->hasMorePages() ? $courses->nextPageUrl() : '#'}}>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+
+
+
+                    @if(count($courses) > 0)
+                        <div class="row mt-5">
+                            <div class="col-sm-12">
+                                <nav>
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item">
+                                            <a class="page-link" href={{($courses->currentPage() - 1) > 0 ? $courses->previousPageUrl() : '/courses' }} >
+                                                <i class="fas fa-arrow-left"></i>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active" aria-current="page">
+                                            <span class="page-link">{{$courses->currentPage()}}<span class="sr-only">(current)</span></span>
+                                        </li>
+                                        @if($courses->nextPageUrl())
+                                        <li class="page-item"><a class="page-link" href={{$courses->nextPageUrl()}}>{{$courses->currentPage() + 1}}</a></li>
+                                        @endif
+                                        <li class="page-item">
+                                            <a class="page-link" href={{$courses->hasMorePages() ? $courses->nextPageUrl() : '#'}}>
+                                                <i class="fas fa-arrow-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>

@@ -125,6 +125,16 @@
                 <i class="nav-icon icon-speedometer"></i> Create Template
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/home/blog/create">
+                <i class="nav-icon icon-speedometer"></i> Create Blog
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/home/blog/">
+                <i class="nav-icon icon-speedometer"></i> Blog
+              </a>
+            </li>
             
           </ul>
         </nav>

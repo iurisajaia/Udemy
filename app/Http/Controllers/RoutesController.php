@@ -7,6 +7,7 @@ use App\Course;
 use App\User;
 use App\Category;
 use App\Template;
+use App\Message;
 use Auth;
 use Hash;
 use DB;
@@ -25,7 +26,7 @@ class RoutesController extends Controller{
             online classes  |
         free online courses  |
         online courses  |
-        online degrees | 
+        online degrees |
         tutorial  |
         javascript tutorial |
         python tutorial |
@@ -72,7 +73,26 @@ class RoutesController extends Controller{
 
     // Courses Page
     public function coursesPage(){
-        $courses = Course::orderBy('id', 'desc')->with(['comments' , 'category'])->paginate(5);
+
+        $courses = Course::orderBy('id', 'desc')->with(['comments' , 'category'])->paginate(10);
+        $categories = Category::with('courses')->get();
+
+        $this->seo = [
+            "title" => 'Courses - FreeOnlineCourses.me - Download best online courses for free',
+            "description" => "FreeOnlineCourses.me - here you can find and easely download free online courses with hight quality",
+        ];
+
+        $data = [
+            'courses' => $courses,
+            'categories' => $categories,
+            'seo' => $this->seo
+        ];
+
+        return view('courses')->with($data);
+    }
+
+    public function byCategory($id){
+        $courses = Course::where('category_id' , $id)->orderBy('id', 'desc')->with(['comments' , 'category'])->paginate(5);
         $categories = Category::with('courses')->get();
 
         $this->seo = [
@@ -121,7 +141,7 @@ class RoutesController extends Controller{
 
     // Privacy Policy Page
     public function privacyPage(){
-        
+
         $this->seo = [
             "title" => 'Privacy Policy - FreeOnlineCourses.me ',
             "description" => "FreeOnlineCourses.me -  This Privacy Policy document contains types of information that is collected and recorded by freeonlinecourses.me and how we use it.",
@@ -138,7 +158,6 @@ class RoutesController extends Controller{
         ->where('category_id', '=', $category )
         ->orWhere('title', 'LIKE' , '%' . $keyword . '%')
         ->paginate(10);
-        
 
         $categories = Category::all();
 
@@ -164,12 +183,12 @@ class RoutesController extends Controller{
             "title" => 'FreeOnlineCourses.me - ' . $user->name . '',
             "description" => "FreeOnlineCourses.me -  Profile page , where you can update your data easely",
         ];
-        
+
         $data = [
             'user' => $user,
             'seo' => $this->seo
         ];
-        
+
         if(Auth::user()->id === $user->id){
             return view('profile')->with($data);
         }else{
@@ -177,7 +196,7 @@ class RoutesController extends Controller{
         }
     }
 
-    // Update User 
+    // Update User
     public function updateProfile(Request $request, $id){
         $user = User::where('id', $id)->firstOrFail();
 
@@ -197,7 +216,7 @@ class RoutesController extends Controller{
 
         $templates = Template::where('title', 'LIKE' , '%' . $keyword . '%')
         ->paginate(10);
-        
+
 
 
         $this->seo = [
@@ -211,6 +230,24 @@ class RoutesController extends Controller{
         ];
 
         return view('templates')->with($data);
+    }
+
+    public function subscribe(Request $request){
+        $email = $request->email;
+
+        if(!$email){
+            return redirect()->back();
+        }
+
+        $subscribe = Message::create([
+            'name' => 'subscribe',
+            'email' => $email,
+            'text' => 'subscribe'
+        ]);
+
+        $subscribe->save();
+
+        return redirect()->back();
     }
 
 }
