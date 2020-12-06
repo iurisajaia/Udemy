@@ -81,7 +81,6 @@
                     </div>
 
 
-
                     @if(count($courses) > 0)
                         <div class="row mt-5">
                             <div class="col-sm-12">
@@ -92,11 +91,22 @@
                                                 <i class="fas fa-arrow-left"></i>
                                             </a>
                                         </li>
+                                        @if($courses->currentPage() - 2 >= 1)
+                                            <li class="page-item"><a class="page-link" href={{$courses->url($courses->currentPage() - 2)}}>{{$courses->currentPage() - 2}}</a></li>
+                                        @endif
+                                        @if($courses->previousPageUrl())
+                                            <li class="page-item"><a class="page-link" href={{$courses->previousPageUrl()}}>{{$courses->currentPage() - 1}}</a></li>
+                                        @endif
                                         <li class="page-item active" aria-current="page">
                                             <span class="page-link">{{$courses->currentPage()}}<span class="sr-only">(current)</span></span>
                                         </li>
+
                                         @if($courses->nextPageUrl())
-                                        <li class="page-item"><a class="page-link" href={{$courses->nextPageUrl()}}>{{$courses->currentPage() + 1}}</a></li>
+                                            <li class="page-item"><a class="page-link" href={{$courses->nextPageUrl()}}>{{$courses->currentPage() + 1}}</a></li>
+                                        @endif
+
+                                        @if($courses->currentPage() + 2 <= $courses->lastPage())
+                                            <li class="page-item"><a class="page-link" href={{$courses->url($courses->currentPage() + 2)}}>{{$courses->currentPage() + 2}}</a></li>
                                         @endif
                                         <li class="page-item">
                                             <a class="page-link" href={{$courses->hasMorePages() ? $courses->nextPageUrl() : '#'}}>

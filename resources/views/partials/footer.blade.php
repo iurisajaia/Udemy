@@ -38,4 +38,5 @@
             </div>
         </div>
     </div>
+    <a class="top" id="top" href="#top"><i class="ion-ios-arrow-thin-up"></i></a>
 </footer>

@@ -34,11 +34,11 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="left-side-blog">
-                        
+
                         <div class="iq-mt-80">
                             <h5 class="iq-widget-title iq-fw-8 mb-4">Recent Courses</h5>
                             @foreach($courses as $cc)
-                        
+
                             <div class="media mb-3">
                                 <img class="mr-3" alt="{{$cc->title}}" src="{{asset('storage/'.$cc->image)}}">
                                 <div class="media-body">
@@ -46,12 +46,12 @@
                                         <h6 class="mt-0 iq-fw-8">{{$cc->title}}</h6>
                                     </a>
                                     {{$cc->created_at->format('d M')}}
-                                   
+
                                 </div>
                             </div>
                         @endforeach
 
-                            
+
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         <h1 class="title iq-fw-8 mt-3">{{$course->title}}</h1>
                         {!! $course->description !!}
 
-                       
+
                         <a class="slide-button button contact-us-button" href="{{asset('storage/'.$course->file)}}">
                             <div class="first">Direct Download</div>
                             <div class="second">Direct Download</div>
@@ -74,7 +74,7 @@
                     <div class="clearfix"></div>
                     <h2 class="title mt-5 iq-fw-8 mb-3">Comments</h2>
                     <ul class="d-block">
-                        @foreach($comments as $comment)
+                        @foreach($course->comments as $comment)
                         <li class="list-inline-item">
                             <div class="comments-box position-relative">
                                 <div class="media">
@@ -91,10 +91,10 @@
                         <br/>
                         <br/>
                         @endforeach
-                        
+
                     </ul>
 
-                    @if(Auth::user())   
+                    @if(Auth::user())
                         <div class="contact-form-area">
                                 <form action="/comment" id="contact-form" method="POST" class="mt-5">
                                     @csrf
@@ -104,7 +104,7 @@
                                         <textarea required class="form-control" placeholder="Comment..." name="text"></textarea>
                                     </div>
                                     <button class="button p-2">Add Comment</button>
-                                </form>   
+                                </form>
                         </div>
                     @endif
                 </div>

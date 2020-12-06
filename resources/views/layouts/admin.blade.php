@@ -18,7 +18,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta content="@isset( $seo ){{$seo["title"]}}@endif" name="title" />
     <meta content="@isset( $seo ){{$seo["description"]}}@endif" name="description" />
-    
+
 
     <meta content="@isset( $seo ){{$seo["title"]}}@endif" property="og:title" />
     <meta content="@isset( $seo ){{$seo["description"]}}@endif" property="og:description" />
@@ -31,13 +31,13 @@
 
     <link rel="canonical" href="@isset( $seo ){{@$seo["canonical"]}}@endif"/>
 
-    <meta name="keywoards" 
+    <meta name="keywoards"
         content="
-        online classes , 
-        free online courses , 
-        online courses , 
-        online degrees, 
-        tutorial , 
+        online classes ,
+        free online courses ,
+        online courses ,
+        online degrees,
+        tutorial ,
         javascript tutorial,
         python tutorial,
         angular tutorial,
@@ -48,7 +48,7 @@
         node js tutorial,
         php tutorial,
         laravel tutorial
-        " 
+        "
         />
     <!-- Icons-->
     <link rel="icon" type="image/ico" href="./img/favicon.ico" sizes="any" />
@@ -73,7 +73,7 @@
           </form>
         </li>
       </ul>
-      
+
 
     </header>
     <div class="app-body">
@@ -125,64 +125,24 @@
                 <i class="nav-icon icon-speedometer"></i> Create Template
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/home/blog/create">
-                <i class="nav-icon icon-speedometer"></i> Create Blog
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/home/blog/">
-                <i class="nav-icon icon-speedometer"></i> Blog
-              </a>
-            </li>
-            
+{{--            <li class="nav-item">--}}
+{{--              <a class="nav-link" href="/home/blog/create">--}}
+{{--                <i class="nav-icon icon-speedometer"></i> Create Blog--}}
+{{--              </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--              <a class="nav-link" href="/home/blog/">--}}
+{{--                <i class="nav-icon icon-speedometer"></i> Blog--}}
+{{--              </a>--}}
+{{--            </li>--}}
+
           </ul>
         </nav>
       </div>
 
       <main class="main">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       @yield('adminsection')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       </main>

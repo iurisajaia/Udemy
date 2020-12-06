@@ -11,5 +11,7 @@ interface SeoRepositoryInterface{
     public function contact();
     public function courses();
     public function course($course);
+    public function search();
+    public function userProfile($userName);
 
 }

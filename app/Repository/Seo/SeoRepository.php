@@ -55,4 +55,18 @@ class SeoRepository implements SeoRepositoryInterface{
         ];
     }
 
+    public function search(){
+        return [
+            "title" => 'Search Result - FreeOnlineCourses.me ',
+            "description" => "FreeOnlineCourses.me -  you can search and filter to find your favourite course",
+        ];
+    }
+
+    public function userProfile($userName){
+        return [
+            "title" => 'FreeOnlineCourses.me - ' . $userName . '',
+            "description" => "FreeOnlineCourses.me -  Profile page , where you can update your data easely",
+        ];
+    }
+
 }

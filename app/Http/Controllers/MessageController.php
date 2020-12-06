@@ -1,27 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Message;
+use App\Repository\Message\MessageRepositoryInterface;
 
 class MessageController extends Controller{
-    
+
+    private $messageRepository;
+
+    public function __construct(
+        MessageRepositoryInterface $messageRepository
+    ){
+        $this->messageRepository = $messageRepository;
+    }
     // Send Message
     public function send(Request $request){
-        Message::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'text' => $request->text
-        ]);
+        $this->messageRepository->create($request);
 
         return redirect('/');
     }
 
     // Get Messages
     public function index(){
-        $messages = Message::all();
-
-        return view('admin.messages')->with('messages' , $messages);
+        return view('admin.messages')->with('messages' , $this->messageRepository->all());
     }
 }

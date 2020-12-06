@@ -3,38 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Course;
-use App\User;
-use App\Category;
-use App\Template;
-use App\Message;
 use Auth;
 use Hash;
 use DB;
 use App\Repository\Course\CourseRepositoryInterface;
 use App\Repository\Seo\SeoRepositoryInterface;
 use App\Repository\Category\CategoryRepositoryInterface;
+use App\Repository\User\UserRepositoryInterface;
+use App\Repository\Template\TemplateRepositoryInterface;
+use App\Repository\Message\MessageRepositoryInterface;
+
 class RoutesController extends Controller{
 
     private $courseRepository;
     private $seoRepository;
     private $categoryRepository;
+    private $userRepository;
+    private $templateRepository;
+    private $messageRepository;
 
     public function __construct(
         CourseRepositoryInterface $courseRepository,
         SeoRepositoryInterface $seoRepository,
-        CategoryRepositoryInterface $categoryRepository
+        CategoryRepositoryInterface $categoryRepository,
+        UserRepositoryInterface $userRepository,
+        TemplateRepositoryInterface $templateRepository,
+        MessageRepositoryInterface $messageRepository
     ){
         $this->courseRepository = $courseRepository;
         $this->seoRepository = $seoRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->userRepository = $userRepository;
+        $this->templateRepository = $templateRepository;
+        $this->messageRepository = $messageRepository;
     }
 
     // Home Page
     public function homePage(){
 
         return view('index')->with([
-            'courses' => $this->courseRepository->all(6),
+            'courses' => $this->courseRepository->all(null , 9),
             'seo' => $this->seoRepository->home()
         ]);
 
@@ -53,7 +61,7 @@ class RoutesController extends Controller{
     // Courses Page
     public function coursesPage(){
         return view('courses')->with([
-            'courses' => $this->courseRepository->all(null),
+            'courses' => $this->courseRepository->all(null , 10),
             'categories' => $this->categoryRepository->all(),
             'seo' => $this->seoRepository->courses()
         ]);
@@ -72,9 +80,8 @@ class RoutesController extends Controller{
         $course = $this->courseRepository->singleCourse($id);
 
         return view('details')->with([
-            'course' => $course,
+            'course' => $this->courseRepository->singleCourse($id),
             'courses' => $this->courseRepository->all(10), // for sidebar
-            'comments' => $course->comments,
             'seo' => $this->seoRepository->course($course)
         ]);
     }
@@ -91,46 +98,22 @@ class RoutesController extends Controller{
 
     // Search Courses
     public function search(Request $request){
-        $keyword = $request->search;
-        $category = $request->category;
-
-        $courses = Course::with('comments')
-        ->where('category_id', '=', $category )
-        ->orWhere('title', 'LIKE' , '%' . $keyword . '%')
-        ->paginate(10);
-
-        $categories = Category::all();
-
-        $this->seo = [
-            "title" => 'Search Result - FreeOnlineCourses.me ',
-            "description" => "FreeOnlineCourses.me -  you can search and filter to find your favourite course",
-        ];
-
-        $data = [
-            'courses' => $courses,
-            'categories' => $categories,
-            'seo' => $this->seo
-        ];
-
-        return view('courses')->with($data);
+        return view('courses')->with([
+            'courses' => $this->courseRepository->searchCourse($request),
+            'categories' => $this->categoryRepository->all(),
+            'seo' => $this->seoRepository->search()
+        ]);
     }
 
     // Profile Page
     public function profile($id){
-        $user = User::where('id' , $id)->firstOrFail();
-
-        $this->seo = [
-            "title" => 'FreeOnlineCourses.me - ' . $user->name . '',
-            "description" => "FreeOnlineCourses.me -  Profile page , where you can update your data easely",
-        ];
-
-        $data = [
-            'user' => $user,
-            'seo' => $this->seo
-        ];
+        $user = $this->userRepository->singleUser($id);
 
         if(Auth::user()->id === $user->id){
-            return view('profile')->with($data);
+            return view('profile')->with([
+                'user' => $user,
+                'seo' => $this->seoRepository->userProfile($user->name)
+            ]);
         }else{
             return redirect()->back();
         }
@@ -138,12 +121,10 @@ class RoutesController extends Controller{
 
     // Update User
     public function updateProfile(Request $request, $id){
-        $user = User::where('id', $id)->firstOrFail();
+        $user = $this->userRepository->singleUser($id);
 
         if($user->id === Auth::user()->id){
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->save();
+            $this->userRepository->updateUser($user, $request);
             return redirect('/');
         }else{
             return redirect()->back();
@@ -152,24 +133,10 @@ class RoutesController extends Controller{
     }
 
     public function searchTemplate(Request $request){
-        $keyword = $request->search;
-
-        $templates = Template::where('title', 'LIKE' , '%' . $keyword . '%')
-        ->paginate(10);
-
-
-
-        $this->seo = [
-            "title" => 'Search Result - FreeOnlineCourses.me ',
-            "description" => "FreeOnlineCourses.me -  you can search and filter to find your favourite course",
-        ];
-
-        $data = [
-            'templates' => $templates,
-            'seo' => $this->seo
-        ];
-
-        return view('templates')->with($data);
+        return view('templates')->with([
+            'templates' => $this->templateRepository->searchTemplates($request->search),
+            'seo' => $this->seoRepository->courses()
+        ]);
     }
 
     public function subscribe(Request $request){
@@ -179,13 +146,7 @@ class RoutesController extends Controller{
             return redirect()->back();
         }
 
-        $subscribe = Message::create([
-            'name' => 'subscribe',
-            'email' => $email,
-            'text' => 'subscribe'
-        ]);
-
-        $subscribe->save();
+        $this->messageRepository->saveMessage($email);
 
         return redirect()->back();
     }

@@ -11,5 +11,11 @@ class CategoryRepository implements CategoryRepositoryInterface{
         return Category::all();
     }
 
+    public function create($request){
+        Category::create([
+            'title' => $request->title,
+        ]);
+    }
+
 
 }

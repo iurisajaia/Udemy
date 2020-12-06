@@ -2,13 +2,13 @@
 @section('content')
 
     <!--Slider Area Start-->
-    
+
     <div class="slider-area">
         <div class="preview-2">
             <div id="nivoslider" class="slides">
             </div>
             <div class="slider-overlay text-center">
-            <img src={{URL::asset('revslider/assets/5.png')}} title="free programming online courses" class="rocket-image">
+            <img src="{{URL::asset('revslider/assets/5.png')}}" title="free programming online courses" class="rocket-image">
             <div class="over-slider-text">
                 <h1>Free Online Programming Courses</h1>
                 <h2>Start Your Career Today </h2>
@@ -70,87 +70,6 @@
             </div>
         </section>
 
-        <section class="position-relative overview-block-pb5">
-            <div class="scrollme">
-                <img src="images/shap/03.png" class="img-fluid project-overlay-right animateme" data-when="enter" data-from="0.5" data-to="0" data-translatey="100" alt="image">
-            </div>
-            <div class="our-info">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <ul class="about-us text-center list-inline">
-                                <li class="list-inline-item"><a href="#Blog" class="active"><span>Free Courses</span></a></li>
-                                <li class="list-inline-item"><a href="#Portfolio"><span>Free Templates</span></a></li>
-                                <li class="list-inline-item"><a href="#Services"><span>Blog</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-info iq-mtb-60" id="Blog">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <img src="images/offers/06.png" class="img-fluid offer-info" alt="#">
-                        </div>
-                        <div class="col-lg-5 ">
-                            <img src="images/others/icon.png" class="img-fluid d-inline mr-4" alt="#">
-                            <h4 class="title iq-fw-8 d-inline">Free Courses</h4>
-                            <p class="mt-3">Easely find and download free online video courses</p>
-                            <ul class="listing-mark mt-4">
-                                <li>Programming</li>
-                                <li>Design</li>
-                                <li>Marketing</li>
-                                <li>Language</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-info iq-mtb-60" id="Portfolio">
-                <div class="container">
-                    <div class="row flex-row-reverse">
-                        <div class="col-lg-7">
-                            <img src="images/offers/07.png" class="img-fluid offer-info" alt="#">
-                        </div>
-                        <div class="col-lg-5 ">
-                            <img src="images/others/icon.png" class="img-fluid d-inline mr-4" alt="#">
-                            <h4 class="title iq-fw-8 d-inline">Free Templates</h4>
-                            <p class="mt-3">Download new template for your website for free</p>
-                            <ul class="listing-mark mt-4">
-                                <li>Corporate</li>
-                                <li>Blog</li>
-                                <li>E-commerce</li>
-                                <li>Personal</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-info   iq-mtb-60" id="Services">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <img src="images/offers/06.png" class="img-fluid offer-info" alt="#">
-                        </div>
-                        <div class="col-lg-5 ">
-                            <img src="images/others/icon.png" class="img-fluid d-inline mr-4" alt="#">
-                            <h4 class="title iq-fw-8 d-inline">Blog</h4>
-                            <p class="mt-3">Get some blogs about new courses and templates.</p>
-                            <ul class="listing-mark mt-4">
-                                <li>Tips</li>
-                                <li>News</li>
-                                <li>Topics</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-
-
-
         <section class="iq-blogs position-relative overview-block-pb  iq-rmt-40">
             <div class="scrollme">
                 <img src="images/shap/02.png" class="img-fluid project-overlay-right animateme" data-when="enter" data-from="0.5" data-to="0" data-translatey="100" alt="image">
@@ -169,8 +88,8 @@
                         <div class="col-lg-4 col-md-4 col-sm-12">
                             <div class="item">
                                 <div class="main-blog">
-                                    <div class="blog-img"> 
-                                        <img src="{{asset('storage/'.$course->image)}}" alt="{{$course->title}}" class="img-fluid" > 
+                                    <div class="blog-img">
+                                        <img src="{{asset('storage/'.$course->image)}}" alt="{{$course->title}}" class="img-fluid" >
                                     </div>
                                     <div class="blog-detail">
                                         <a class="main-color iq-fw-8" href="/course/{{str_slug($course->title)}}/{{$course->id}}">{{$course->category->title}}</a>
@@ -185,7 +104,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>   
+                        </div>
                         @endforeach
                 </div>
             </div>
@@ -254,8 +173,6 @@
             </div>
         </section>
 
-        
-
     </div>
     <!--Course Area Start-->
     {{-- <div class="course-area section-padding bg-white">
@@ -303,6 +220,6 @@
         </div>
     </div> --}}
     <!--End of Course Area-->
-    
-    
+
+
 @endsection

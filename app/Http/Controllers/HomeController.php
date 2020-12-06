@@ -1,44 +1,52 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Repository\Category\CategoryRepositoryInterface;
+use App\Repository\Course\CourseRepositoryInterface;
+use App\Repository\Message\MessageRepositoryInterface;
+use App\Repository\Seo\SeoRepositoryInterface;
+use App\Repository\Template\TemplateRepositoryInterface;
+use App\Repository\User\UserRepositoryInterface;
 use Auth;
 use Illuminate\Http\Request;
 use App\Course;
 use App\Message;
 use App\Comment;
-use App\User;
-use App\Template;
 use App\Category;
-use Storage;
 
 class HomeController extends Controller
 {
-    
-    public function __construct(){
+    private $courseRepository;
+    private $seoRepository;
+    private $categoryRepository;
+    private $userRepository;
+    private $templateRepository;
+    private $messageRepository;
+
+    public function __construct(
+        CourseRepositoryInterface $courseRepository,
+        SeoRepositoryInterface $seoRepository,
+        CategoryRepositoryInterface $categoryRepository,
+        UserRepositoryInterface $userRepository,
+        TemplateRepositoryInterface $templateRepository,
+        MessageRepositoryInterface $messageRepository
+    ){
         $this->middleware('auth');
+        $this->courseRepository = $courseRepository;
+        $this->seoRepository = $seoRepository;
+        $this->categoryRepository = $categoryRepository;
+        $this->userRepository = $userRepository;
+        $this->templateRepository = $templateRepository;
+        $this->messageRepository = $messageRepository;
     }
 
     public function index(){
-        $courses = Course::all();
-        $messsages = Message::all();
-        $comments = Comment::all();
-        $categories = Category::all();
-        // $templates = Template::all();
-
-        $this->seo = [
-            "title" => 'FreeOnlineCourses.me - Admin Panel',
-            "description" => "FreeOnlineCourses.me - you can manage your website data from here",
-        ];
-
-        $data = [
-            'courses_count' => count($courses),
-            'messages_count' => count($messsages),
-            'comments_count' => count($comments),
-            'categories_count' => count($categories),
-            'seo' => $this->seo
-        ];
-
-        return view('admin/index')->with($data);
+        return view('admin/index')->with([
+            'courses_count' => Course::count(),
+            'messages_count' => Message::count(),
+            'comments_count' => Comment::count(),
+            'categories_count' => Category::count(),
+        ]);
     }
 
     public function logout(){
@@ -47,43 +55,17 @@ class HomeController extends Controller
     }
 
     public function create(){
-        return view('admin/create')->with('categories' , Category::all());
+        return view('admin/create')->with('categories' , $this->categoryRepository->all());
     }
 
-    
     public function courses(){
-        $courses = Course::orderBy('id', 'desc')->with('category')->paginate(20);
-
-        $this->seo = [
-            "title" => 'FreeOnlineCourses.me - free online courses',
-            "description" => "FreeOnlineCourses.me -  website dashboard , where you can add your courses easely",
-        ];
-
-
-        $data = [
-            'courses' => $courses,
-            'seo' => $this->seo
-        ];
-
-        return view('admin/courses')->with($data);
+        return view('admin/courses')->with('courses' , $this->courseRepository->all(null , 10));
     }
 
     // Store course
     public function store(Request $request){
 
-        $image = $request->image->store('images');
-
-        $filename = $request->file->getClientOriginalName();
-        $file = $request->file->storeAs('files' , $filename);
-
-        Course::create([
-            'title' => $request->title,
-            'author' => $request->author,
-            'description' => $request->description,
-            'category_id' => $request->category_id,
-            'image' => $image,
-            'file' => $file
-        ]);
+        $this->courseRepository->store($request);
 
         return redirect('home/courses');
 
@@ -91,46 +73,25 @@ class HomeController extends Controller
 
     // Remove Course
     public function destroy($id){
-        $course = Course::where('id' , $id)->firstOrFail();
-        Storage::delete($course->image);
-        Storage::delete($course->file);
-        $course->delete();
+        $this->courseRepository->destroy($id);
         return redirect('home/courses');
     }
 
     // Edit View
     public function edit($id){
-        $course = Course::where('id' , $id)->firstOrFail();
-
-        return view('admin.edit')->with('course' , $course);
+        return view('admin.edit')->with('course' , $this->courseRepository->singleCourse($id));
     }
 
     // Update Course
     public function update(Request $request , $id){
-        $course = Course::where('id' , $id)->firstOrFail();
 
-        $course->title = $request->title;
-        $course->author = $request->author;
-        $course->description = $request->description;
-        $course->save();
+        $this->courseRepository->update($request,$id);
 
         return redirect('home/courses');
     }
 
     public function categories(){
-        $categories = Category::all();
-
-        $this->seo = [
-            "title" => 'FreeOnlineCourses.me - categories',
-            "description" => "FreeOnlineCourses.me -  Profile page , where you can check your categories easely",
-        ];
-
-        $data = [
-            'categories' => $categories,
-            'seo' => $this->seo
-        ];
-
-        return view('admin/categories')->with($data);
+        return view('admin/categories')->with('categories' , $this->categoryRepository->all());
     }
 
     public function createCategory(){
@@ -138,31 +99,14 @@ class HomeController extends Controller
     }
 
     public function storeCategory(Request $request){
-        Category::create([
-            'title' => $request->title,
-        ]);
+        $this->categoryRepository->create($request);
         return redirect('/home/categories');
     }
 
-
-
-    // Templates 
+    // Templates
 
     public function templates(){
-        $templates = Template::orderBy('id', 'desc')->paginate(20);
-
-        $this->seo = [
-            "title" => 'FreeOnlineCourses.me - free online courses',
-            "description" => "FreeOnlineCourses.me -  website dashboard , where you can add your courses easely",
-        ];
-
-
-        $data = [
-            'templates' => $templates,
-            'seo' => $this->seo
-        ];
-
-        return view('admin/templates')->with($data);
+        return view('admin/templates')->with('templates' , $this->templateRepository->all());
     }
 
     public function createTemplate(){
@@ -171,31 +115,17 @@ class HomeController extends Controller
 
     public function storeTemplate(Request $request){
 
-        $image = $request->image->store('images');
-
-
-        Template::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'file_url' => $request->file_url,
-            'image' => $image,
-            'udemy_url' => $request->udemy_url
-        ]);
+        $this->templateRepository->store($request);
 
         return redirect('home/templates');
     }
 
     public function editTemplate($id){
-        $template = Template::where('id' , $id)->firstOrFail();
-
-        return view('admin.edit-template')->with('template' , $template);
+        return view('admin.edit-template')->with('template' , $this->templateRepository->edit($id));
     }
 
-
     public function deleteTemplate($id){
-        $template = Template::where('id' , $id)->firstOrFail();
-        Storage::delete($template->image);
-        $template->delete();
+        $this->templateRepository->destroy($id);
         return redirect('home/templates');
     }
 }
